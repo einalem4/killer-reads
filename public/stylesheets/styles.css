@@ -1,0 +1,284 @@
+html {
+  font-size: 16px;
+  font-family: open-sans, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  color: #f0f0f0;
+  background-image: url("../assets/background/static-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #e6e6e6;
+  overflow-x: hidden;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url("../assets/background/static-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 15px;
+}
+
+#main-logo {
+  width: 10%;
+}
+
+section {
+  width: 80%;
+  margin: 4rem auto;
+}
+
+.btn-nav {
+  font: 100% open-sans, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f0f0f0;
+  margin: 0.75rem;
+}
+
+.btn-no-style {
+  border: none;
+  background-color: transparent;
+  width: 150px;
+}
+
+.jumbotron {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cta {
+  border: 1px solid #dc0404;
+  border-radius: 20px;
+  background-color: #dc0404;
+  padding: 5px 30px;
+}
+
+.secondary-cta {
+  color: none;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  padding: 5px 30px;
+}
+
+.copy {
+  width: 35%;
+}
+
+.copy h1 {
+  font: 5rem modesto-poster, serif;
+}
+
+.copy p {
+  font: 1.5rem open-sans, sans-serif;
+}
+
+.copy .cta {
+  margin: 2rem 0;
+  width: 200px;
+}
+
+.botm {
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.botm img {
+  width: 50%;
+}
+
+.botm .copy h2 {
+  font: 4.5rem modesto-poster, serif;
+  color: #dc0404;
+}
+
+.botm .copy p, .botm .copy h3 {
+  color: #828282;
+}
+
+.botm .copy .botm-subheader {
+  text-transform: uppercase;
+  position: relative;
+  top: 0.75rem;
+}
+
+.botm .copy .botm-author {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.botm .copy .secondary-cta {
+  color: #dc0404;
+  border-color: #dc0404;
+  margin: 1rem 0;
+  width: 300px;
+}
+
+.features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.features h2 {
+  color: #dc0404;
+  font: 4rem modesto-poster, serif;
+  text-align: center;
+}
+
+.features .feature-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.features .feature-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: black;
+}
+
+.features img {
+  width: 30%;
+  margin: 0.75rem;
+}
+
+.features h3 {
+  font: 2rem modesto-poster, serif;
+}
+
+.features p {
+  font: 1rem open-sans, sans-serif;
+}
+
+.features #clubs-icon {
+  width: 50%;
+}
+
+.pop-discuss {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pop-discuss h2 {
+  color: #dc0404;
+  font: 4rem modesto-poster, serif;
+  text-align: center;
+}
+
+.pop-discuss .discuss-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pop-discuss .discuss-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: black;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.pop-discuss img {
+  width: 50%;
+  margin: 0.75rem;
+}
+
+.pop-discuss h3 {
+  font: 2rem modesto-poster, serif;
+}
+
+.pop-discuss h4 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.pop-discuss h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+footer {
+  background-color: #1a1a1a;
+}
+/*# sourceMappingURL=styles.css.map */

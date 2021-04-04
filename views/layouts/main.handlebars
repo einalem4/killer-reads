@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killer Reads</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="/public/assets/logo/killer-reads-logo.svg" alt="Killer Reads Logo" />
+            <nav>
+                <a href="/" class="btn-nav">homepage</a>
+                <a href="/discussions" class="btn-nav">discussions</a>
+                <a href="/categories" class="btn-nav">categories</a>
+                <a href="/new-post" class="btn-nav">new post</a>
+
+                {{#if loggedIn}}
+                    <button id="logout" class="btn-no-style btn-nav">login</button>
+                {{else}}
+                    <a href="/login" class="btn-nav">login</a>
+                {{/if}}
+
+                <a href="/signup" class="btn-nav">sign up</a>
+            </nav>
+        </header>
+    </div>
+</body>
+</html>
