@@ -1,0 +1,28 @@
+.btn-nav {
+    font: 100% $font-body;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-white;
+    margin: 0.75rem;
+}
+
+.btn-no-style {
+    border: none;
+    background-color: transparent;
+    width: 150px;
+}
+
+.cta {
+    border: 1px solid $color-red;
+    border-radius: 20px;
+    background-color: $color-red;
+    padding: 5px 30px;
+}
+
+.secondary-cta {
+    color: none;
+    border: 1px solid $color-white;
+    border-radius: 20px;
+    padding: 5px 30px;
+}
