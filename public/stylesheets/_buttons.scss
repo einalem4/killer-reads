@@ -5,24 +5,27 @@
     text-decoration: none;
     color: $color-white;
     margin: 0.75rem;
+    cursor: pointer;
 }
 
 .btn-no-style {
     border: none;
     background-color: transparent;
-    width: 150px;
+    
 }
 
 .cta {
     border: 1px solid $color-red;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: $color-red;
     padding: 5px 30px;
+    width: 150px;
 }
 
 .secondary-cta {
     color: none;
     border: 1px solid $color-white;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 5px 30px;
+    width: 150px;
 }
