@@ -47,323 +47,41 @@
                 <div class="bar-3"></div>
             </div>
             <nav class="side-nav" id="side-nav">
-                <a href="/homepage" class="btn-nav">homepage</a>
-                <a href="/discussions" class="btn-nav">discussions</a>
-                <div class="dropdown">
-                    <button class="btn-no-style btn-nav">genres</button>
-                    <div class="dropdown-list">
-                        <a href="/comedy-horror">Comedy-Horror</a>
-                        <a href="/dark-fantasy">Dark-Fantasy</a>
-                        <a href="/gothic">Gothic</a>
-                        <a href="/lovecraftian">Lovecraftian</a>
-                        <a href="/paranormal">Paranormal</a>
-                        <a href="/post-apocalyptic">Post-Apocalyptic</a>
-                        <a href="/psychological">Psychological</a>
-                        <a href="/sci-fi">Sci-Fi Horror</a>
-                        <a href="/slasher">Slasher</a>
-                        <a href="/supernatural">Supernatural</a>
-                        <a href="/other">Other</a>
+                <div class="side-nav-links-wrapper">
+                    <a href="/homepage" class="btn-nav">homepage</a>
+                    <a href="/discussions" class="btn-nav">discussions</a>
+                    <div class="dropdown">
+                        <button class="btn-no-style btn-nav">genres</button>
+                        <div class="dropdown-list">
+                            <a href="/comedy-horror">Comedy-Horror</a>
+                            <a href="/dark-fantasy">Dark-Fantasy</a>
+                            <a href="/gothic">Gothic</a>
+                            <a href="/lovecraftian">Lovecraftian</a>
+                            <a href="/paranormal">Paranormal</a>
+                            <a href="/post-apocalyptic">Post-Apocalyptic</a>
+                            <a href="/psychological">Psychological</a>
+                            <a href="/sci-fi">Sci-Fi Horror</a>
+                            <a href="/slasher">Slasher</a>
+                            <a href="/supernatural">Supernatural</a>
+                            <a href="/other">Other</a>
+                        </div>
                     </div>
+                    <a href="/new-post" class="btn-nav">new post</a>
                 </div>
-                <a href="/new-post" class="btn-nav">new post</a>
-    
-                <!-- {{#if loggedIn}} -->
-                <button class="btn-no-style btn-nav cta">logout</button>
-                <!-- {{else}} -->
-                <button class="btn-no-style btn-nav cta">login</button>
-                <!-- {{/if}} -->
-                <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                
+                <div class="side-nav-btn-wrapper">
+                    <!-- {{#if loggedIn}} -->
+                    <button class="btn-no-style btn-nav cta">logout</button>
+                    <!-- {{else}} -->
+                    <button class="btn-no-style btn-nav cta">login</button>
+                    <!-- {{/if}} -->
+                    <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                </div>
             </nav>
         </header>
 
         <main>
             <!-- {{{body}}} -->
-            
-            <div class="homepage-wrapper">
-                <aside>
-                    <h2>Hello, Username</h2>
-                    <a href="./new-post" class="btn-nav secondary-cta">create new post</a>
-                    
-                    <nav>
-                        <button class="btn-no-style btn-nav btn-user-nav">posts</button>
-                        <button class="btn-no-style btn-nav btn-user-nav">comments</button>
-                        <button class="btn-no-style btn-nav btn-user-nav">following</button>
-                    </nav>
-
-                    <div class="user-posts">
-                        <ol class="feed-list">
-                            <li>
-                                <article class="post">
-                                    <div class="post-info">
-                                        <div class="book-info">
-                                            <a href="/post/{{id}}">
-                                                <h3>book title</h3>
-                                                <h4>author</h4>
-                                            </a> 
-                                        </div>
-                                        
-                                        <a href="/genre/{{id}}">
-                                            <h4>genre</h4>
-                                        </a>
-                                    </div>    
-    
-                                    <div class="post-meta">
-                                        <p>
-                                            Created by {{user.username}} on {{format_date created at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                        </p>    
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article class="post">
-                                    <div class="post-info">
-                                        <div class="book-info">
-                                            <a href="/post/{{id}}">
-                                                <h3>book title</h3>
-                                                <h4>author</h4>
-                                            </a> 
-                                        </div>
-                                        
-                                        <a href="/genre/{{id}}">
-                                            <h4>genre</h4>
-                                        </a>
-                                    </div>    
-    
-                                    <div class="post-meta">
-                                        <p>
-                                            Created by {{user.username}} on {{format_date created at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                        </p>    
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article class="post">
-                                    <div class="post-info">
-                                        <div class="book-info">
-                                            <a href="/post/{{id}}">
-                                                <h3>book title</h3>
-                                                <h4>author</h4>
-                                            </a> 
-                                        </div>
-                                        
-                                        <a href="/genre/{{id}}">
-                                            <h4>genre</h4>
-                                        </a>
-                                    </div>    
-    
-                                    <div class="post-meta">
-                                        <p>
-                                            Created by {{user.username}} on {{format_date created at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                        </p>    
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article class="post">
-                                    <div class="post-info">
-                                        <div class="book-info">
-                                            <a href="/post/{{id}}">
-                                                <h3>book title</h3>
-                                                <h4>author</h4>
-                                            </a> 
-                                        </div>
-                                        
-                                        <a href="/genre/{{id}}">
-                                            <h4>genre</h4>
-                                        </a>
-                                    </div>    
-    
-                                    <div class="post-meta">
-                                        <p>
-                                            Created by {{user.username}} on {{format_date created at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                        </p>    
-                                    </div>
-                                </article>
-                            </li>
-                        </ol>
-                    </div>
-                </aside>
-
-                <section class="feed">
-                    <ol class="feed-list">
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="post">
-                                <div class="post-info">
-                                    <div class="book-info">
-                                        <a href="/post/{{id}}">
-                                            <h3>book title</h3>
-                                            <h4>author</h4>
-                                        </a> 
-                                    </div>
-                                    
-                                    <a href="/genre/{{id}}">
-                                        <h4>genre</h4>
-                                    </a>
-                                </div>    
-
-                                <div class="post-meta">
-                                    <p>
-                                        Created by {{user.username}} on {{format_date created at}}
-                                    </p>
-                                    <p>
-                                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-                                    </p>
-                                </div>
-                            </article>
-                        </li>
-                    </ol>
-                </section>
-            </div>
         </main>
 
         <footer>

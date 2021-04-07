@@ -80,10 +80,10 @@ header {
 }
 
 .side-nav {
-    @include flex(stretch, center, column);
+    @include flex(space-between, center, column);
+    background-color: $color-dark-grey;
     height: 100vh;
     width: 0;
-    background-color: $color-dark-grey;
     position: fixed;
     top: 0;
     right: 0;
@@ -92,8 +92,13 @@ header {
 }
 
 .side-nav-slide {
-    width: 80vw;
+    width: 70vw;
+    padding: 2rem;
     transition: 0.5s;
+}
+
+.side-nav-links-wrapper, .side-nav-btn-wrapper {
+    @include flex(center, center, column);
 }
 
 @media only screen and (min-width: 600px) {
