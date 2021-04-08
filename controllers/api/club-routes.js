@@ -1,10 +1,8 @@
-// sets necesarry dependencies
 const router = require('express').Router();
 const { User, Club } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
-  console.log('======================');
   Club.findAll({
     attributes: [
       'id',
