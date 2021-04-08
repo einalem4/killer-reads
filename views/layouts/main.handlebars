@@ -50,10 +50,13 @@
             </div>
             <nav class="side-nav" id="side-nav">
                 <div class="side-nav-links-wrapper">
-                    <a href="/homepage" class="btn-nav">homepage</a>
+                    {{#if loggedIn}}
+                    <a href="/homepage" class="btn-nav">my homepage</a>
+                    <a href="/new-post" class="btn-nav">new post</a>
+                    {{/if}}
                     <div class="dropdown">
-                        <button class="btn-no-style btn-nav">genres</button>
-                        <div class="dropdown-list">
+                    <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
+                    <div class="dropdown-list">
                             <a href="/comedy-horror">Comedy-Horror</a>
                             <a href="/dark-fantasy">Dark-Fantasy</a>
                             <a href="/gothic">Gothic</a>
