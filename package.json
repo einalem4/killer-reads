@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "seeds": "node seeds/index.js",
     "start": "node server.js"
   },
   "author": "",
@@ -18,5 +19,14 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/einalem4/killer-reads.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/einalem4/killer-reads/issues"
+  },
+  "homepage": "https://github.com/einalem4/killer-reads#readme"
 }

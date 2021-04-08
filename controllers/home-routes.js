@@ -1,18 +1,17 @@
-// sets necesarry dependencies
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Vote } = require('../models');
 
-
-// gets all posts for homepage
+// get all posts for homepage
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
     attributes: [
       'id',
-      'post_text',
+      'post_url',
       'title',
-      'created_at'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -43,7 +42,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// gets single post for single post page
+// get single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -51,9 +50,10 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_text',
+      'post_url',
       'title',
-      'created_at'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -75,7 +75,9 @@ router.get('/post/:id', (req, res) => {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
+
       const post = dbPostData.get({ plain: true });
+
       res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn
@@ -87,31 +89,13 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-// gets login page
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
+
   res.render('login');
-});
-
-// gets sign up page
-router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('signup');
-});
-
-// checks boolean value of session to redirect to the homepage
-router.get('/', (req, res) => {
-  if (req.session.loggedOut) {
-    res.redirect('/');
-    return;
-  }
-  res.render('/');
 });
 
 module.exports = router;

@@ -1,19 +1,18 @@
-// sets necesarry dependencies
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Vote } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// gets all posts for homepage when not logged in
+// get all users
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
     attributes: [
       'id',
+      'post_url',
       'title',
-      'author',
-      'genre',
-      'post_text'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -37,7 +36,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// gets single post for single post page when not logged in
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -45,9 +43,10 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_text',
+      'post_url',
       'title',
-      'created_at'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -77,12 +76,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// posts post to database
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Blog Post!', post_text: 'text about topic', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
-    post_text: req.body.post_text,
+    post_url: req.body.post_url,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -92,11 +90,19 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-// updates post in database
+router.put('/upvote', withAuth, (req, res) => {
+  // custom static method created in models/Post.js
+  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+    .then(updatedVoteData => res.json(updatedVoteData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      post_text: req.body.text,
       title: req.body.title
     },
     {
@@ -118,7 +124,6 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-// deletes post in database
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
   Post.destroy({

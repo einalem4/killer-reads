@@ -1,8 +1,7 @@
-// sets necesarry dependencies
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { User, Post, Comment, Vote } = require('../../models');
 
-// gets all users
+// get all users
 router.get('/', (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] }
@@ -14,7 +13,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// gets user by id
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -24,7 +22,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_text', 'created_at']
+        attributes: ['id', 'title', 'post_url', 'created_at']
       },
       {
         model: Comment,
@@ -36,7 +34,9 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Post,
-        attributes: ['title']
+        attributes: ['title'],
+        through: Vote,
+        as: 'voted_posts'
       }
     ]
   })
@@ -53,12 +53,12 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// post new user to database
 router.post('/', (req, res) => {
-  // expects {username: 'John Doe', email: 'johndoe@email.email', password: 'password123'}
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234', club_id: "club666"}
   User.create({
     username: req.body.username,
     email: req.body.email,
+    club_id: req.body.club_id,
     password: req.body.password
   })
     .then(dbUserData => {
@@ -76,9 +76,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// post new user to database
 router.post('/login', (req, res) => {
-  // expects {username: 'John Doe', email: 'johndoe@email.email', password: 'password123'}
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
       email: req.body.email
@@ -88,7 +87,9 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
+
     const validPassword = dbUserData.checkPassword(req.body.password);
+
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
@@ -97,12 +98,12 @@ router.post('/login', (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
+  
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });
 
-// logs user out of their session
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -114,9 +115,10 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// updates user in database
 router.put('/:id', (req, res) => {
-  // expects {username: 'John Doe', email: 'johndoe@email.email', password: 'password123'}
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+
+  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -136,7 +138,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// deletes user form database
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {

@@ -1,10 +1,9 @@
-// sets necesarry dependencies
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
-// gets all posts for dashboard
+// get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================');
@@ -14,9 +13,10 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_text',
+      'post_url',
       'title',
-      'created_at'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -43,14 +43,14 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// gets edit page based on selected post id
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_text',
+      'post_url',
       'title',
-      'created_at'
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -82,15 +82,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
     .catch(err => {
       res.status(500).json(err);
     });
-});
-
-// gets post create page
-router.get('/create', (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-  res.render('create-post');
 });
 
 module.exports = router;
