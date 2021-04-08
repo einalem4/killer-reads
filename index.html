@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killer Reads</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xvy6hog.css">
+    <link rel="stylesheet" href="./public/stylesheets/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="./public/assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" />
+            <nav class="navbar">
+                <a href="/homepage" class="btn-nav">homepage</a>
+                <a href="/discussions" class="btn-nav">discussions</a>
+                <div class="dropdown">
+                    <button class="btn-no-style btn-nav">genres</button>
+                    <div class="dropdown-list">
+                        <a href="/comedy-horror">Comedy-Horror</a>
+                        <a href="/dark-fantasy">Dark-Fantasy</a>
+                        <a href="/gothic">Gothic</a>
+                        <a href="/lovecraftian">Lovecraftian</a>
+                        <a href="/paranormal">Paranormal</a>
+                        <a href="/post-apocalyptic">Post-Apocalyptic</a>
+                        <a href="/psychological">Psychological</a>
+                        <a href="/sci-fi">Sci-Fi Horror</a>
+                        <a href="/slasher">Slasher</a>
+                        <a href="/supernatural">Supernatural</a>
+                        <a href="/other">Other</a>
+                    </div>
+                </div>
+                <a href="/new-post" class="btn-nav">new post</a>
+
+                <!-- {{#if loggedIn}} -->
+                <button class="btn-no-style btn-nav cta">logout</button>
+                <!-- {{else}} -->
+                <button class="btn-no-style btn-nav cta">login</button>
+                <!-- {{/if}} -->
+                <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+            </nav>
+            <div class="ham-menu" id="ham-menu">
+                <div class="bar-1"></div>
+                <div class="bar-2"></div>
+                <div class="bar-3"></div>
+            </div>
+            <nav class="side-nav" id="side-nav">
+                <div class="side-nav-links-wrapper">
+                    <a href="/homepage" class="btn-nav">homepage</a>
+                    <a href="/discussions" class="btn-nav">discussions</a>
+                    <div class="dropdown">
+                        <button class="btn-no-style btn-nav">genres</button>
+                        <div class="dropdown-list">
+                            <a href="/comedy-horror">Comedy-Horror</a>
+                            <a href="/dark-fantasy">Dark-Fantasy</a>
+                            <a href="/gothic">Gothic</a>
+                            <a href="/lovecraftian">Lovecraftian</a>
+                            <a href="/paranormal">Paranormal</a>
+                            <a href="/post-apocalyptic">Post-Apocalyptic</a>
+                            <a href="/psychological">Psychological</a>
+                            <a href="/sci-fi">Sci-Fi Horror</a>
+                            <a href="/slasher">Slasher</a>
+                            <a href="/supernatural">Supernatural</a>
+                            <a href="/other">Other</a>
+                        </div>
+                    </div>
+                    <a href="/new-post" class="btn-nav">new post</a>
+                </div>
+                
+                <div class="side-nav-btn-wrapper">
+                    <!-- {{#if loggedIn}} -->
+                    <button class="btn-no-style btn-nav cta">logout</button>
+                    <!-- {{else}} -->
+                    <button class="btn-no-style btn-nav cta">login</button>
+                    <!-- {{/if}} -->
+                    <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- {{{body}}} -->
+        </main>
+
+        <footer>
+            <img src="./public/assets/logo/killer-reads-logo.svg" id="footer-logo" alt="Killer Reads Logo" />
+            
+            <nav>
+                <!-- {{#if loggedIn}} -->
+                <button class="btn-no-style btn-nav">logout</button>
+                <!-- {{else}} -->
+                <button class="btn-no-style btn-nav">login</button>
+                <!-- {{/if}} -->
+                <button class="btn-no-style btn-nav">sign up</button>
+                <a href="/about" class="btn-nav">about</a>
+                <a href="/contact" class="btn-nav">contact</a>
+                <a href="/privacy" class="btn-nav">privacy policy</a>
+            </nav>
+
+            <div class="social-wrapper">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="./public/assets/icons/social-facebook.svg" alt="Facebook Link">
+                </a>
+
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="./public/assets/icons/social-instagram.svg" alt="Instagram Link">
+                </a>
+
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="./public/assets/icons/social-twitter.svg" alt="Twitter Link">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./public/javascript/mobile-nav.js"></script>
+</body>
+</html>

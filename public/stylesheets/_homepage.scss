@@ -1,0 +1,55 @@
+.homepage-wrapper {
+    width: 80%;
+    margin: 4rem auto;
+    @include flex(space-between, flex-start, row);
+
+    aside {
+        width: 25%;
+        height: 700px;
+        @include flex(flex-start, center, column);
+        background-color: $color-white;
+        border-radius: 10px;
+        padding: 1rem;
+
+        h2 {
+            font: 2rem $font-header;
+            text-align: center;
+            color: $color-black;
+        }
+
+        .secondary-cta {
+            color: $color-black;
+            text-align: center;
+            border-radius: 10px;
+            border-color: $color-black;
+            width: 80%;
+        }
+
+        nav {
+            @include flex(space-between, center, row);
+
+            .btn-user-nav {
+                color: $color-mid-grey;
+                width: auto;
+            }
+        }
+    }
+
+    .user-posts, .feed {
+        height: 700px;
+        @include flex(flex-start, stretch, column);
+        background-color: $color-white;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 0 auto;
+        overflow-y: scroll;
+    }
+
+    .feed {
+        width: 70%;
+
+        ol {
+            list-style-type: none;
+        }
+    }
+}

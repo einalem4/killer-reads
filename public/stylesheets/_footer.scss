@@ -1,0 +1,30 @@
+footer {
+    @include flex(center, center, column);
+    width: 100vw;
+    background-color: $color-dark-grey;
+    padding: 2rem;
+
+    #footer-logo {
+        width: 15%;
+    }
+
+    nav {
+        margin: 2rem;
+
+        .btn-nav {
+            width: auto;
+        }
+    }
+
+    .social-wrapper {
+        @include flex(space-around, center, row);
+    }
+
+        a {
+            text-align: center;
+        }
+
+        img {
+            width: 20%;
+        }
+}
