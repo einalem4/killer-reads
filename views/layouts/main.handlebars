@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killer Reads</title>
+    <link rel="stylesheet" href="https://use.typekit.net/xvy6hog.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+    <header>
+            <img src="./public/assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" />
+            <nav>
+                <a href="/homepage" class="btn-nav">homepage</a>
+                <a href="/discussions" class="btn-nav">discussions</a>
+                <a href="/categories" class="btn-nav">categories</a>
+                <a href="/new-post" class="btn-nav">new post</a>
+
+                {{#if loggedIn}}
+                <button class="btn-no-style btn-nav cta">logout</button>
+                {{else}}
+                <button class="btn-no-style btn-nav cta">login</button>
+                {{/if}}
+                <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- {{{body}}} -->
+        </main>
+
+        <footer>
+            <img src="./public/assets/logo/killer-reads-logo.svg" id="footer-logo" alt="Killer Reads Logo" />
+            
+            <nav>
+                {{#if loggedIn}}
+                <button class="btn-no-style btn-nav cta">logout</button>
+                {{else}}
+                <button class="btn-no-style btn-nav cta">login</button>
+                {{/if}}
+                <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                <a href="/about" class="btn-nav">about</a>
+                <a href="/contact" class="btn-nav">contact</a>
+                <a href="/privacy" class="btn-nav">privacy policy</a>
+            </nav>
+
+            <div class="social-wrapper">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="./public/assets/icons/social-facebook.svg" alt="Facebook Link">
+                </a>
+
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="./public/assets/icons/social-instagram.svg" alt="Instagram Link">
+                </a>
+
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="./public/assets/icons/social-twitter.svg" alt="Twitter Link">
+                </a>
+            </div>
+        </footer>
+</body>
+</html>
