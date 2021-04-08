@@ -13,9 +13,12 @@
 <body>
     <div class="wrapper">
         <header>
-            <img src="./assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" />
+            <a href="/"><img src="./assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" /></a> 
             <nav class="navbar">
-                <a href="/homepage" class="btn-nav">homepage</a>
+                {{#if loggedIn}}
+                <a href="/homepage" class="btn-nav">my homepage</a>
+                <a href="/new-post" class="btn-nav">new post</a>
+                {{/if}}
                 <div class="dropdown">
                     <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
                     <div class="dropdown-list">
@@ -32,8 +35,7 @@
                         <a href="/other">Other</a>
                     </div>
                 </div>
-                <a href="/new-post" class="btn-nav">new post</a>
-
+                
                 {{#if loggedIn}}
                 <button class="btn-no-style btn-nav cta">logout</button>
                 {{else}}
