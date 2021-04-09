@@ -16,8 +16,8 @@
             <a href="/"><img src="./assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" /></a> 
             <nav class="navbar">
                 {{#if loggedIn}}
-                <a href="/homepage" class="btn-nav">my homepage</a>
-                <a href="/new-post" class="btn-nav">new post</a>
+                <a href="/user-account" class="btn-nav">my account</a>
+                <a href="/create-post" class="btn-nav">new post</a>
                 {{/if}}
                 <div class="dropdown">
                     <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
@@ -39,9 +39,9 @@
                 {{#if loggedIn}}
                 <button class="btn-no-style btn-nav cta">logout</button>
                 {{else}}
-                <button class="btn-no-style btn-nav cta">login</button>
+                <a href="/login" class="btn-nav cta">login</a>
                 {{/if}}
-                <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                <a href="/signup" class="btn-nav secondary-cta">sign up</a>
             </nav>
             <div class="ham-menu" id="ham-menu">
                 <div class="bar-1"></div>
@@ -51,7 +51,7 @@
             <nav class="side-nav" id="side-nav">
                 <div class="side-nav-links-wrapper">
                     {{#if loggedIn}}
-                    <a href="/homepage" class="btn-nav">my homepage</a>
+                    <a href="/user-account" class="btn-nav">my account</a>
                     <a href="/new-post" class="btn-nav">new post</a>
                     {{/if}}
                     <div class="dropdown">
@@ -70,16 +70,16 @@
                             <a href="/other">Other</a>
                         </div>
                     </div>
-                    <a href="/new-post" class="btn-nav">new post</a>
+                    <a href="/create-post" class="btn-nav">new post</a>
                 </div>
                 
                 <div class="side-nav-btn-wrapper">
                    {{#if loggedIn}}
                     <button class="btn-no-style btn-nav cta">logout</button>
                    {{else}}
-                    <button class="btn-no-style btn-nav cta">login</button>
+                    <a href="/login" class="btn-nav cta">login</a>
                     {{/if}}
-                    <button class="btn-no-style btn-nav secondary-cta">sign up</button>
+                    <a href="/signup" class="btn-nav secondary-cta">sign up</a>
                 </div>
             </nav>
         </header>
