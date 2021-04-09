@@ -36,9 +36,14 @@ router.get('/user-account', (req, res) => {
   res.render('user-account');
 });
 
-// user discussions
+// discussions
 router.get('/discussions', (req, res) => {
   res.render('discussions');
+});
+
+// single post page
+router.get('/single-post', (req, res) => {
+  res.render('single-post');
 });
 
 // login

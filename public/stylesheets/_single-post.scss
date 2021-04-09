@@ -1,0 +1,65 @@
+.post-wrapper {
+    @include flex(space-between, flex-start, column);
+    background-color: $color-white;
+    border-radius: 10px;
+    width: 80%;
+    min-height: 700px;
+    margin: 4rem auto;
+    padding: 1rem;
+
+    .post {
+        background-color: $color-dark-grey;
+        width: 100%;
+
+        .post-info {
+            @include flex(space-between, center, row);
+    
+            a {
+                text-decoration: none;
+                color: $color-white;
+            }    
+    
+            h3 {
+                text-transform: uppercase;
+                font-weight: 700;
+                display: inline-block;
+            }
+    
+            h4 {
+                font-weight: 400;
+                font-style: italic;
+                display: inline-block;
+            }  
+        }
+    }
+
+    
+    .feed {
+        
+        height: 100%;
+        @include flex(flex-start, stretch, column);
+        background-color: $color-white;
+        
+        
+        margin: 0 auto;
+        overflow-y: scroll;
+
+        .sort {
+            @include flex(flex-start, center, row);
+            color: $color-black;
+            margin: 1rem 0;
+
+            p {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .feed {
+        width: 70%;
+
+        ol {
+            list-style-type: none;
+        }
+    }
+}   
