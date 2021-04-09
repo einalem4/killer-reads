@@ -1,23 +1,131 @@
-<div class="discussions-wrapper">
+<div class="homepage-wrapper">
     <section class="feed">
-        <div class="sort">
-            <p>Sort by:</p>
-            <select name="genre" id="genre">
-                <option value="">All</option>
-                <option value="comedy-horror">Comedy-Horror</option>
-                <option value="dark-fantasy">Dark-Fantasy</option>
-                <option value="gothic">Gothic</option>
-                <option value="lovecraftian">Lovecraftian</option>
-                <option value="paranormal">Paranormal</option>
-                <option value="post-apocalyptic">Post-Apocalyptic</option>
-                <option value="psychological">Psychological</option>
-                <option value="sci-fi">Sci-Fi Horror</option>
-                <option value="slasher">Slasher</option>
-                <option value="supernatural">Supernatural</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
         <ol class="feed-list">
+            <li>
+                <article class="post">
+                    <div class="post-info">
+                        <div class="book-info">
+                            <a href="/post/{{id}}">
+                                <h3>book title</h3>
+                                <h4>author</h4>
+                            </a> 
+                        </div>
+                        
+                        <a href="/genre/{{id}}">
+                            <h4>genre</h4>
+                        </a>
+                    </div>    
+
+                    <div class="post-meta">
+                        <p>
+                            Created by {{user.username}} on {{format_date created at}}
+                        </p>
+                        <p>
+                            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="post">
+                    <div class="post-info">
+                        <div class="book-info">
+                            <a href="/post/{{id}}">
+                                <h3>book title</h3>
+                                <h4>author</h4>
+                            </a> 
+                        </div>
+                        
+                        <a href="/genre/{{id}}">
+                            <h4>genre</h4>
+                        </a>
+                    </div>    
+
+                    <div class="post-meta">
+                        <p>
+                            Created by {{user.username}} on {{format_date created at}}
+                        </p>
+                        <p>
+                            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="post">
+                    <div class="post-info">
+                        <div class="book-info">
+                            <a href="/post/{{id}}">
+                                <h3>book title</h3>
+                                <h4>author</h4>
+                            </a> 
+                        </div>
+                        
+                        <a href="/genre/{{id}}">
+                            <h4>genre</h4>
+                        </a>
+                    </div>    
+
+                    <div class="post-meta">
+                        <p>
+                            Created by {{user.username}} on {{format_date created at}}
+                        </p>
+                        <p>
+                            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="post">
+                    <div class="post-info">
+                        <div class="book-info">
+                            <a href="/post/{{id}}">
+                                <h3>book title</h3>
+                                <h4>author</h4>
+                            </a> 
+                        </div>
+                        
+                        <a href="/genre/{{id}}">
+                            <h4>genre</h4>
+                        </a>
+                    </div>    
+
+                    <div class="post-meta">
+                        <p>
+                            Created by {{user.username}} on {{format_date created at}}
+                        </p>
+                        <p>
+                            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="post">
+                    <div class="post-info">
+                        <div class="book-info">
+                            <a href="/post/{{id}}">
+                                <h3>book title</h3>
+                                <h4>author</h4>
+                            </a> 
+                        </div>
+                        
+                        <a href="/genre/{{id}}">
+                            <h4>genre</h4>
+                        </a>
+                    </div>    
+
+                    <div class="post-meta">
+                        <p>
+                            Created by {{user.username}} on {{format_date created at}}
+                        </p>
+                        <p>
+                            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                        </p>
+                    </div>
+                </article>
+            </li>
             <li>
                 <article class="post">
                     <div class="post-info">
