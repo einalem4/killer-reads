@@ -41,9 +41,27 @@ router.get('/discussions', (req, res) => {
   res.render('discussions');
 });
 
+// discussions genre
+router.get('/discussions/genre/:genreId', (req, res) => {
+  // res.render('discussions');
+  res.render('discussions', { genreId: req.params.genreId });
+});
+
 // single post page
 router.get('/single-post', (req, res) => {
   res.render('single-post');
+});
+
+// single post page
+router.get('/single-post/:postId', (req, res) => {
+  Post.findByPk(req.params.postId)
+  .then(dbPostData => {
+    res.render('single-post', { post:dbPostData, loggedIn: req.session.loggedIn });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // create post page
