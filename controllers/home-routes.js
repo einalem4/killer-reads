@@ -46,6 +46,11 @@ router.get('/single-post', (req, res) => {
   res.render('single-post');
 });
 
+// create post page
+router.get('/create-post', (req, res) => {
+  res.render('create-post');
+});
+
 // login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

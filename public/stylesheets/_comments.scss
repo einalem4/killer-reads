@@ -1,0 +1,10 @@
+.comments {
+    width: 100%;
+    color: $color-black;
+
+    .comment {
+        width: 100%;
+        border-bottom: 1px solid $color-dark-grey;
+        padding: 1rem;
+    }
+}
