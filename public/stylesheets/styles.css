@@ -1,4 +1,4 @@
-.btn-nav, .btn-login, .btn-signup, .btn-submit, .page-wrapper .comment-form button {
+.btn-nav, .btn-login, .btn-signup, .btn-submit, .btn-delete, .page-wrapper .comment-form button {
   font: 100% open-sans, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.btn-nav:hover, .btn-login:hover, .btn-signup:hover, .btn-submit:hover, .page-wrapper .comment-form button:hover {
+.btn-nav:hover, .btn-login:hover, .btn-signup:hover, .btn-submit:hover, .btn-delete:hover, .page-wrapper .comment-form button:hover {
   color: #dc0404;
 }
 
@@ -30,7 +30,7 @@
   color: #f0f0f0;
 }
 
-.secondary-cta {
+.secondary-cta, .btn-delete {
   color: none;
   border: 1px solid #f0f0f0;
   border-radius: 10px;
@@ -42,6 +42,13 @@
 .btn-login, .btn-signup, .btn-submit {
   width: 100%;
   margin: 0;
+}
+
+.btn-delete {
+  color: black;
+  border: 1px solid black;
+  width: 100%;
+  margin: 1rem 0;
 }
 
 .post {
@@ -327,7 +334,7 @@ footer nav {
   margin: 2rem;
 }
 
-footer nav .btn-nav, footer nav .btn-login, footer nav .btn-signup, footer nav .btn-submit, footer nav .page-wrapper .comment-form button, .page-wrapper .comment-form footer nav button {
+footer nav .btn-nav, footer nav .btn-login, footer nav .btn-signup, footer nav .btn-submit, footer nav .btn-delete, footer nav .page-wrapper .comment-form button, .page-wrapper .comment-form footer nav button {
   width: auto;
 }
 
@@ -428,7 +435,7 @@ footer img {
   text-transform: uppercase;
 }
 
-.botm .copy .secondary-cta {
+.botm .copy .secondary-cta, .botm .copy .btn-delete {
   color: #dc0404;
   border-color: #dc0404;
   margin: 1rem 0;
@@ -620,7 +627,7 @@ footer img {
   color: black;
 }
 
-.user-wrapper aside .secondary-cta {
+.user-wrapper aside .secondary-cta, .user-wrapper aside .btn-delete {
   color: black;
   text-align: center;
   border-radius: 10px;

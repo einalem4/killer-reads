@@ -51,6 +51,11 @@ router.get('/create-post', (req, res) => {
   res.render('create-post');
 });
 
+// edit post page
+router.get('/edit-post', (req, res) => {
+  res.render('edit-post');
+});
+
 // login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
