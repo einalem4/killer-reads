@@ -8,12 +8,15 @@
 @import './variables';
 @import './buttons';
 @import './posts';
+@import './comments';
 @import './navigation';
 @import './footer';
 @import './landing';
-@import './homepage';
-@import './login';
-@import './dashboard';
+@import './user-account';
+@import './discussions';
+@import './login-signup';
+@import './create-post';
+@import './single-post';
 
 html {
     font-size: 16px;
