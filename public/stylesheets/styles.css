@@ -1,4 +1,4 @@
-.btn-nav, .btn-login, .btn-signup, .btn-submit {
+.btn-nav, .btn-login, .btn-signup, .btn-submit, .page-wrapper .comment-form button {
   font: 100% open-sans, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -8,7 +8,7 @@
   cursor: pointer;
 }
 
-.btn-nav:hover, .btn-login:hover, .btn-signup:hover, .btn-submit:hover {
+.btn-nav:hover, .btn-login:hover, .btn-signup:hover, .btn-submit:hover, .page-wrapper .comment-form button:hover {
   color: #dc0404;
 }
 
@@ -101,6 +101,17 @@
 .post .post-meta {
   color: #828282;
   font-size: 0.9rem;
+}
+
+.comments {
+  width: 100%;
+  color: black;
+}
+
+.comments .comment {
+  width: 100%;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 1rem;
 }
 
 header {
@@ -316,7 +327,7 @@ footer nav {
   margin: 2rem;
 }
 
-footer nav .btn-nav, footer nav .btn-login, footer nav .btn-signup, footer nav .btn-submit {
+footer nav .btn-nav, footer nav .btn-login, footer nav .btn-signup, footer nav .btn-submit, footer nav .page-wrapper .comment-form button, .page-wrapper .comment-form footer nav button {
   width: auto;
 }
 
@@ -728,11 +739,7 @@ footer img {
   margin-right: 1rem;
 }
 
-.discussions-wrapper .feed {
-  width: 70%;
-}
-
-.discussions-wrapper .feed ol {
+.discussions-wrapper ol {
   list-style-type: none;
 }
 
@@ -867,13 +874,13 @@ footer img {
   outline-color: #dc0404;
 }
 
-.post-wrapper {
+.page-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -889,12 +896,19 @@ footer img {
   padding: 1rem;
 }
 
-.post-wrapper .post {
-  background-color: #1a1a1a;
-  width: 100%;
+.page-wrapper .post-wrapper {
+  margin-bottom: 1rem;
 }
 
-.post-wrapper .post .post-info {
+.page-wrapper .post-wrapper .post {
+  background-color: #1a1a1a;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.page-wrapper .post-wrapper .post .post-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -910,71 +924,51 @@ footer img {
           flex-direction: row;
 }
 
-.post-wrapper .post .post-info a {
+.page-wrapper .post-wrapper .post .post-info a {
   text-decoration: none;
   color: #f0f0f0;
 }
 
-.post-wrapper .post .post-info h3 {
+.page-wrapper .post-wrapper .post .post-info h3 {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
 }
 
-.post-wrapper .post .post-info h4 {
+.page-wrapper .post-wrapper .post .post-info h4 {
   font-weight: 400;
   font-style: italic;
   display: inline-block;
 }
 
-.post-wrapper .feed {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background-color: #f0f0f0;
-  margin: 0 auto;
-  overflow-y: scroll;
+.page-wrapper .post-wrapper .post-text {
+  border: 1px solid #1a1a1a;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem;
+  margin-top: 0;
 }
 
-.post-wrapper .feed .sort {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+.page-wrapper .post-wrapper .post-text p {
   color: black;
+}
+
+.page-wrapper .comment-form {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.page-wrapper .comment-form textarea {
+  width: 100%;
+  height: 160px;
+}
+
+.page-wrapper .comment-form button {
   margin: 1rem 0;
+  width: auto;
 }
 
-.post-wrapper .feed .sort p {
-  margin-right: 1rem;
-}
-
-.post-wrapper .feed {
-  width: 70%;
-}
-
-.post-wrapper .feed ol {
-  list-style-type: none;
+.page-wrapper .comment-form button:hover {
+  color: #f0f0f0;
 }
 
 html {
