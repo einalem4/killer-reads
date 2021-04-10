@@ -39,10 +39,13 @@
         }
 
         .alt-wrapper {
-            @include flex(center, center, row);
+            @include flex(space-around, center, row);
+            width: 100%;
+            margin-top: 2rem;
 
             a {
-                margin-top: 2rem;
+                font-size: 0.8rem;
+                text-align: center;
 
                 &:hover {
                     color: $color-red;

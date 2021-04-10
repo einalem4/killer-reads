@@ -377,6 +377,19 @@ footer img {
 }
 
 .copy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 35%;
 }
 
@@ -808,9 +821,8 @@ footer img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -818,10 +830,13 @@ footer img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .login-wrapper .login-form .alt-wrapper a, .login-wrapper .signup-form .alt-wrapper a, .signup-wrapper .login-form .alt-wrapper a, .signup-wrapper .signup-form .alt-wrapper a {
-  margin-top: 2rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .login-wrapper .login-form .alt-wrapper a:hover, .login-wrapper .signup-form .alt-wrapper a:hover, .signup-wrapper .login-form .alt-wrapper a:hover, .signup-wrapper .signup-form .alt-wrapper a:hover {

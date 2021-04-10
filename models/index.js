@@ -3,6 +3,7 @@ const Post = require('./Post');
 const User = require('./User');
 const Comment = require('./Comment');
 const Club = require('./Club');
+const Genre = require('./Genre');
 
 // creates necessary associations
 User.hasMany(Post, {
@@ -11,22 +12,21 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(Post, {
   foreignKey: 'post_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 User.hasMany(Comment, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 Post.hasMany(Comment, {
@@ -35,12 +35,22 @@ Post.hasMany(Comment, {
 
 User.belongsTo(Club, {
   foreignKey: 'club_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 Club.hasMany(User, {
   foreignKey: 'club_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
+});
+
+Post.belongsTo(Genre, {
+  foreignKey: 'genre_id',
+  // onDelete: 'SET NULL'
+});
+
+Genre.hasMany(Post, {
+  foreignKey: 'genre_id',
+  // onDelete: 'SET NULL'
 });
 
 module.exports = { User, Post, Comment, Club };
