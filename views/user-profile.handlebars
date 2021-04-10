@@ -1,6 +1,6 @@
 <div class="user-wrapper">
     <aside>
-        <h2>Hello, Username</h2>
+        <h2>Hello, {{user.username}}</h2>
         <a href="./create-post" class="btn-nav secondary-cta">create new post</a>
     </aside>
 
@@ -14,7 +14,14 @@
             </select>
         </div>
         <ol class="feed-list">
-            <li>
+            {{#if posts.length}}
+                {{#each posts as |post|}}
+                <li>
+                {{> post-info post}}
+                </li>
+                {{/each}}
+            {{/if}}    
+            {{!-- <li>
                 <article class="post">
                     <div class="post-info">
                         <div class="book-info">
@@ -101,7 +108,7 @@
                         </p>    
                     </div>
                 </article>
-            </li>
+            </li> --}}
         </ol>
     </section>
 </div>
