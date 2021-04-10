@@ -1,24 +1,26 @@
 .jumbotron {
     @include flex(space-around, center, row);
+
+    .copy {
+        @include flex(flex-start, flex-start, column);
+        width: 35%;
+    
+        h1 {
+            font: 5rem $font-header;
+        }
+    
+        p {
+            font: 1.5rem $font-body;
+        }
+    
+        .cta {
+            margin: 2rem 0;
+            width: 200px;
+        }
+    }
 }
 
-.copy {
-    @include flex(flex-start, flex-start, column);
-    width: 35%;
 
-    h1 {
-        font: 5rem $font-header;
-    }
-
-    p {
-        font: 1.5rem $font-body;
-    }
-
-    .cta {
-        margin: 2rem 0;
-        width: 200px;
-    }
-}
 
 .botm {
     background-color: $color-white;
@@ -141,4 +143,31 @@
                 font-weight: 400;
                 font-style: italic;
             }
+}
+
+@media only screen and (max-width: 768px) {
+    .jumbotron {
+        @include flex(space-around, center, column);
+
+        .copy {
+            width: 100%;
+        
+            // h1 {
+            //     font: 5rem $font-header;
+            // }
+        
+            // p {
+            //     font: 1.5rem $font-body;
+            // }
+        
+            // .cta {
+            //     margin: 2rem 0;
+            //     width: 200px;
+            // }
+        }
+
+        img {
+            display: none;
+        }
+    }
 }
