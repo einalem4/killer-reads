@@ -31,20 +31,22 @@ router.get('/', (req, res) => {
     });
 });
 
-// user account
-router.get('/user-account', (req, res) => {
-  res.render('user-account');
+// login
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/discussions');
+    return;
+  }
+  res.render('login');
 });
 
-// discussions
-router.get('/discussions', (req, res) => {
-  res.render('discussions');
-});
-
-// discussions genre
-router.get('/discussions/genre/:genreId', (req, res) => {
-  // res.render('discussions');
-  res.render('discussions', { genreId: req.params.genreId });
+//sign up
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/discussions');
+    return;
+  }
+  res.render('signup');
 });
 
 // single post page
@@ -64,24 +66,14 @@ router.get('/single-post/:postId', (req, res) => {
   });
 });
 
-// create post page
-router.get('/create-post', (req, res) => {
-  res.render('create-post');
+
+
+// edit post page
+router.get('/edit-post', (req, res) => {
+  res.render('edit-post');
 });
 
-// login
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
 
-//sign up
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
 
 router.get('/post/:id', (req, res) => {
   Post.findOne({

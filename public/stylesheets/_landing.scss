@@ -3,6 +3,7 @@
 }
 
 .copy {
+    @include flex(flex-start, flex-start, column);
     width: 35%;
 
     h1 {

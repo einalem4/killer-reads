@@ -42,9 +42,18 @@
     text-align: center;
 }
 
-.btn-login, .btn-signup, .btn-submit {
+.btn-login, .btn-signup, .btn-submit, {
     @extend .btn-nav;
     @extend .cta;
     width: 100%;
     margin: 0;
+}
+
+.btn-delete {
+    @extend .btn-nav;
+    @extend .secondary-cta;
+    color: $color-black;
+    border: 1px solid $color-black;
+    width: 100%;
+    margin: 1rem 0;
 }
