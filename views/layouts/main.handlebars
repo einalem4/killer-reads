@@ -16,8 +16,8 @@
             <a href="/"><img src="./assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" /></a> 
             <nav class="navbar">
                 {{#if loggedIn}}
-                <a href="/user-account" class="btn-nav">my profile</a>
-                <a href="/create-post" class="btn-nav">new post</a>
+                <a href="/user-profile" class="btn-nav">my profile</a>
+                <a href="/dashboard" class="btn-nav">new post</a>
                 {{/if}}
                 <div class="dropdown">
                     <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
@@ -37,7 +37,7 @@
                 </div>
                 
                 {{#if loggedIn}}
-                <button class="btn-no-style btn-nav cta">logout</button>
+                <button class="btn-no-style btn-nav cta" id="desktop-logout">logout</button>
                 {{else}}
                 <a href="/login" class="btn-nav cta">login</a>
                 {{/if}}
@@ -48,10 +48,11 @@
                 <div class="bar-2"></div>
                 <div class="bar-3"></div>
             </div>
+
             <nav class="side-nav" id="side-nav">
                 <div class="side-nav-links-wrapper">
                     {{#if loggedIn}}
-                    <a href="/user-account" class="btn-nav">my profile</a>
+                    <a href="/user-profile" class="btn-nav">my profile</a>
                     <a href="/new-post" class="btn-nav">new post</a>
                     {{/if}}
                     <div class="dropdown">
@@ -74,9 +75,9 @@
                 </div>
                 
                 <div class="side-nav-btn-wrapper">
-                   {{#if loggedIn}}
-                    <button class="btn-no-style btn-nav cta">logout</button>
-                   {{else}}
+                    {{#if loggedIn}}
+                    <button class="btn-no-style btn-nav cta" id="mobile-logout">logout</button>
+                    {{else}}
                     <a href="/login" class="btn-nav cta">login</a>
                     {{/if}}
                     <a href="/signup" class="btn-nav secondary-cta">sign up</a>
@@ -93,12 +94,12 @@
             
             <nav>
                 {{#if loggedIn}}
-                <button class="btn-no-style btn-nav">logout</button>
+                <button class="btn-no-style btn-nav" id="footer-logout">logout</button>
                 {{else}}
-                <button class="btn-no-style btn-nav">login</button>
+                <a href="/login" class="btn-nav">login</a>
                 {{/if}}
 
-                <button class="btn-no-style btn-nav">sign up</button>
+                <a href="/signup" class="btn-nav">sign up</a>
                 <a href="/about" class="btn-nav">about</a>
                 <a href="/contact" class="btn-nav">contact</a>
                 <a href="/privacy" class="btn-nav">privacy policy</a>

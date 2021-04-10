@@ -24,9 +24,12 @@ Post.init(
         len: [1]
       }
     },
-    genre: {
-      type: DataTypes.STRING,
-      allowNull: false
+    genre_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'genre',
+        key: 'id'
+      }
     },
     post_text: {
       type: DataTypes.STRING,
@@ -35,7 +38,11 @@ Post.init(
       }
     },
     user_id: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     }
   },
   {

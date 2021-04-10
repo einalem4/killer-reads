@@ -12,4 +12,6 @@ async function logout() {
   }
 }
 
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#desktop-logout').addEventListener('click', logout);
+document.querySelector('#mobile-logout').addEventListener('click', logout);
+document.querySelector('#footer-logout').addEventListener('click', logout);
