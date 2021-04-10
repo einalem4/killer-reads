@@ -12,10 +12,15 @@ router.get('/', (req, res) => {
         attributes: [
             'id', 
             'title', 
+            'author',
             'post_text', 
             'created_at'
         ],
         include: [
+            {
+                model: Genre,
+                attributes: ['name']
+            },
             {
                 model: Comment,
                 attributes: [
@@ -25,7 +30,8 @@ router.get('/', (req, res) => {
                     'user_id', 
                     'created_at'
                 ],
-                include: {
+                include: 
+                {
                     model: User,
                     attributes: ['username']
                 }

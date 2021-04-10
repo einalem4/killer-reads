@@ -1,7 +1,12 @@
 <div class="discussions-wrapper">
     <section class="feed">
         <ol class="feed-list">
+            {{#each posts as |post|}}
             <li>
+                {{> post-info post}}
+            </li>
+            {{/each}}
+            {{!-- <li>
                 <article class="post">
                     <div class="post-info">
                         <div class="book-info">
@@ -175,7 +180,7 @@
                         </p>
                     </div>
                 </article>
-            </li>
+            </li> --}}
         </ol>
     </section>
 </div>

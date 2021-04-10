@@ -11,6 +11,19 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    Genre.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbGenreData => res.json(dbGenreData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 router.post('/', (req, res) => {
     Genre.create({
         name: req.body.name
