@@ -40,6 +40,10 @@ User.init(
       validate: {
         len: [4]
       }
+    },
+    reset_token: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   },
   {
@@ -50,7 +54,9 @@ User.init(
         return newUserData;
       },
       async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        if (updatedUserData._previousDataValues.password !== updatedUserData.password) {
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        }
         return updatedUserData;
       }
     },
