@@ -1,26 +1,37 @@
 const router = require('express').Router();
-const { Post, User, Vote, Comment } = require('../../models');
+const { Post, User, Vote, Comment, Genre } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //get all posts
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'post_text', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
-    order: [
-      ['created_at', 'DESC']
-    ],
-    include: [{
-      model: User,
-      attributes: ['username']
-    },
-    {
-      model: Comment,
-      attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-      include: {
-        model: User,
-        attributes: ['username']
-      }
-    }
+      attributes: [
+        'id', 
+        'title', 
+        'author',
+        'post_text', 
+        'created_at', 
+      ],
+      order: [
+        ['created_at', 'DESC']
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['username']
+        },
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
+          model: Genre,
+          attributes: ['name']
+        }
     ]
   })
     .then(dbPostData => res.json(dbPostData.reverse()))
@@ -69,8 +80,10 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
-    content: req.body.content,
-    user_id: req.session.user_id
+    author: req.body.author,
+    post_text: req.body.post_text,
+    user_id: req.session.user_id,
+    genre_id: req.session.genre_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

@@ -36,6 +36,6 @@ const genredata = [
   }
 ];
 
-const seedGenres = () => Genre.bulkCreate(clubdata);
+const seedGenres = () => Genre.bulkCreate(genredata);
 
 module.exports = seedGenres;
