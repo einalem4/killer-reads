@@ -1,3 +1,5 @@
+const crypto = require('crypto')
+
 module.exports = {
   format_date: date => {
     return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -10,5 +12,10 @@ module.exports = {
     }
 
     return word;
+  },
+
+  randomString: (num = 32) => {
+    return crypto.randomBytes(num).toString('hex')
   }
 };
+

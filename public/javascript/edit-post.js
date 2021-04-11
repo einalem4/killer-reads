@@ -1,8 +1,10 @@
 async function editFormHandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value.trim();
-  const content = document.querySelector('input[name="content"]').value.trim();
+  const title = document.querySelector('input[name="title"]').value;
+  const author = document.querySelector('input[name="author"]').value;
+  const genre = document.querySelector('#genre').value;
+  const text = document.querySelector('#text').value;
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
@@ -10,7 +12,9 @@ async function editFormHandler(event) {
     method: 'PUT',
     body: JSON.stringify({
       title,
-      content
+      author,
+      genre,
+      text
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -18,7 +22,7 @@ async function editFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard/');
+    document.location.replace('/discussions/');
   } else {
     alert(response.statusText);
   }
