@@ -5,7 +5,7 @@ const { Post, User, Comment } = require('../models');
 // landing page
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'post_text', 'created_at'[sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
+    attributes: ['id', 'title', 'post_text', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
     include: [{
       model: Comment,
       attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],

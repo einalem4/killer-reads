@@ -23,4 +23,4 @@ async function resetPasswordFormHandler(event) {
   }
 }
 
-document.querySelector('.reset-form').addEventListener('submit', resetPasswordFormHandler);
+document.querySelector('').addEventListener('submit', resetPasswordFormHandler);

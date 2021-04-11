@@ -21,4 +21,4 @@ async function forgotFormHandler(event) {
   }
 }
 
-document.querySelector('.forgot-form').addEventListener('submit', forgotFormHandler);
+document.querySelector('#forgot-form').addEventListener('submit', forgotFormHandler);
