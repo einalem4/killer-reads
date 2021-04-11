@@ -27,15 +27,15 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Post,
-        attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: ['id', 'title', 'post_text', 'created_at']
       },
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'created_at'],
-        include: {
+        include: [{
           model: Post,
           attributes: ['title']
-        }
+        }]
       },
       {
         model: Post,
@@ -137,12 +137,12 @@ router.post('/forgot', (req, res) => {
     }
     dbUserData.reset_token = randomString();
     await dbUserData.save();
-    let link = `https://killer-reads.herokuapp.com/forgot-password?token=${dbUserData.reset_token}`
+    let link = `${process.env.SERVICE_URL}/reset-password?token=${dbUserData.reset_token}`
     const msg = {
       to: dbUserData.email,
       from: 'killerreadsbookclub@gmail.com',
       subject: 'Killer Reads - Reset Your Password',
-      html: `<a href="${link}">Click this link to reset password</a>`
+      html: `<a href="${link}"> Click here to reset password</a>`
     }
     sgMail
       .send(msg)
