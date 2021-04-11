@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
         },
         {
           model: Genre,
-          attributes: ['name']
+          attributes: ['id', 'name']
         }
     ]
   })

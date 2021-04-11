@@ -4,6 +4,7 @@ const User = require('./User');
 const Comment = require('./Comment');
 const Club = require('./Club');
 const Genre = require('./Genre');
+const Vote = require('./Vote');
 
 // creates necessary associations
 Genre.hasMany(Post, {

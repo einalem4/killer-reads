@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Genre } = require('../models');
 
 // landing page
 router.get('/', (req, res) => {
@@ -17,6 +17,10 @@ router.get('/', (req, res) => {
     {
       model: User,
       attributes: ['username']
+    },
+    {
+      model: Genre,
+      attributes: ['id', 'name']
     }
     ]
   })
