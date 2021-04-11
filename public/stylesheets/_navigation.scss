@@ -112,6 +112,10 @@ header {
 }
 
 @media only screen and (max-width: 768px) {
+    header {
+        background-size: 200%;
+    }
+    
     #main-logo {
         width: 50%;
     }
