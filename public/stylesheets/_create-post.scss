@@ -50,3 +50,9 @@
         }
     }    
 }
+
+@media only screen and (max-width: 768px) {
+    .dashboard-wrapper {
+        width: 90%
+    }
+}
