@@ -6,7 +6,7 @@ async function newFormHandler(event) {
   const genre = document.querySelector('#genre').value;
   const text = document.querySelector('#text').value;
 
-  const response = await fetch(`/api/new-post`, {
+  const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
       title,
@@ -20,10 +20,10 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/new-post');
+    document.location.replace('/user-profile');
   } else {
     alert(response.statusText);
   }
 }
 
-document.querySelector('.post-form').addEventListener('submit', newFormHandler);
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
