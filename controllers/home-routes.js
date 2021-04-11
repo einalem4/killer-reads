@@ -5,7 +5,7 @@ const { Post, User, Comment, Genre } = require('../models');
 // landing page
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'post_text', 'created_at'],
+    attributes: ['id', 'title', 'post_text', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
     include: [{
       model: Comment,
       attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -47,16 +47,16 @@ router.get('/login', (req, res) => {
 // request reset password
 router.get('/forgot-password', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/discussions');
+    res.redirect('/');
     return;
   }
   res.render('forgot-password');
 });
 
-// rest password
+// reset password
 router.get('/reset-password', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/discussions');
+    res.redirect('/');
     return;
   }
   res.render('reset-password');

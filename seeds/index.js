@@ -3,6 +3,7 @@ const seedPosts = require('./post-seeds');
 const seedComments = require('./comment-seeds');
 const seedClubs = require('./club-seeds');
 const seedGenres = require('./genre-seeds');
+const seedVotes = require('./vote-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -23,6 +24,10 @@ const seedAll = async () => {
 
   await seedComments();
   console.log('--------------');
+
+  await seedVotes();
+  console.log('--------------');
+
 
   process.exit(0);
 };
