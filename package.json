@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/einalem4/killer-reads/issues"
   },
-  "homepage": "https://github.com/einalem4/killer-reads#readme"
+  "homepage": "https://github.com/einalem4/killer-reads#readme",
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-plugin-node": "^11.1.0"
+  }
 }

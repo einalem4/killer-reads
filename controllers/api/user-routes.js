@@ -137,7 +137,7 @@ router.post('/forgot', (req, res) => {
     }
     dbUserData.reset_token = randomString();
     await dbUserData.save();
-    let link = `https://killer-reads.herokuapp.com/forgot-password?token=${dbUserData.reset_token}`
+    let link = `${process.env.SERVICE_URL}/reset-password?token=${dbUserData.reset_token}`
     const msg = {
       to: dbUserData.email,
       from: 'killerreadsbookclub@gmail.com',

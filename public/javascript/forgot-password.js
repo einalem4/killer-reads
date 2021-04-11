@@ -2,7 +2,7 @@ async function forgotFormHandler(event) {
   event.preventDefault();
 
 
-  const email = document.querySelector('#email-forgot').value.trim();
+  const email = document.querySelector('#password-reset-req').value.trim();
 
   if (email) {
     const response = await fetch('/api/users/forgot', {
@@ -14,7 +14,8 @@ async function forgotFormHandler(event) {
     });
 
     if (response.ok) {
-      alert(response.json().message);
+      const data = await response.json();
+      alert (data.message)
     } else {
       alert(response.statusText);
     }
