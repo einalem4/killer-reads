@@ -5,8 +5,18 @@ const Comment = require('./Comment');
 const Vote = require('./Vote');
 const Club = require('./Club');
 const Genre = require('./Genre');
+const Image = require('./Image');
 
 // creates necessary associations
+User.hasMany(Image, {
+  foreignKey: 'user_id'
+});
+
+Image.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
+});
+
 Genre.hasMany(Post, {
   foreignKey: 'genre_id',
   // onDelete: 'SET NULL'
@@ -80,4 +90,4 @@ Club.hasMany(User, {
   // onDelete: 'SET NULL'
 });
 
-module.exports = { User, Post, Vote, Comment, Club, Genre };
+module.exports = { User, Post, Vote, Comment, Club, Genre, Image };

@@ -27,6 +27,8 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars')
 
+const fileUpload = require('express-fileupload');
+app.use(fileUpload());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
