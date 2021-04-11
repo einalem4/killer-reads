@@ -309,6 +309,9 @@ header nav {
 }
 
 @media only screen and (max-width: 768px) {
+  header {
+    background-size: 200%;
+  }
   #main-logo {
     width: 50%;
   }
@@ -375,6 +378,33 @@ footer img {
   width: 20%;
 }
 
+@media only screen and (max-width: 768px) {
+  footer {
+    padding: 2rem 0.5rem;
+  }
+  footer #footer-logo {
+    width: 50%;
+  }
+  footer nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer nav .btn-nav, footer nav .btn-login, footer nav .btn-signup, footer nav .btn-submit, footer nav .btn-delete, footer nav .page-wrapper .comment-form button, .page-wrapper .comment-form footer nav button {
+    width: auto;
+  }
+}
+
 .jumbotron {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -435,6 +465,7 @@ footer img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 1rem;
 }
 
 .botm img {
@@ -608,6 +639,13 @@ footer img {
   font-style: italic;
 }
 
+.pop-discuss .secondary-cta, .pop-discuss .btn-delete {
+  color: #dc0404;
+  border-color: #dc0404;
+  margin: 1rem 0;
+  width: 300px;
+}
+
 @media only screen and (max-width: 768px) {
   .jumbotron {
     display: -webkit-box;
@@ -628,6 +666,37 @@ footer img {
   }
   .jumbotron img {
     display: none;
+  }
+  .botm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .botm img {
+    width: 100%;
+  }
+  .features .feature-grid {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
+  .pop-discuss .discuss-grid {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+    margin-top: 2rem;
   }
 }
 
@@ -810,6 +879,17 @@ footer img {
   list-style-type: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .discussions-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+  .discussions-wrapper .feed {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .login-wrapper, .signup-wrapper, .password-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -817,9 +897,9 @@ footer img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -873,15 +953,16 @@ footer img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   margin-top: 2rem;
 }
@@ -893,6 +974,12 @@ footer img {
 
 .login-wrapper .login-form .alt-wrapper a:hover, .login-wrapper .signup-form .alt-wrapper a:hover, .login-wrapper .password-form .alt-wrapper a:hover, .signup-wrapper .login-form .alt-wrapper a:hover, .signup-wrapper .signup-form .alt-wrapper a:hover, .signup-wrapper .password-form .alt-wrapper a:hover, .password-wrapper .login-form .alt-wrapper a:hover, .password-wrapper .signup-form .alt-wrapper a:hover, .password-wrapper .password-form .alt-wrapper a:hover {
   color: #dc0404;
+}
+
+@media only screen and (max-width: 768px) {
+  .login-wrapper, .signup-wrapper, .password-wrapper {
+    width: 90%;
+  }
 }
 
 .dashboard-wrapper {
@@ -1092,5 +1179,11 @@ main {
 section {
   width: 80%;
   margin: 4rem auto;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-size: cover;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

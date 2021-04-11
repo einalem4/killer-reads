@@ -53,5 +53,9 @@ section {
     margin: 4rem auto;
 }
 
-
+@media only screen and (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+}
 
