@@ -650,7 +650,6 @@ footer img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 25%;
-  height: 700px;
   background-color: #f0f0f0;
   border-radius: 10px;
   margin: 0 1rem;
@@ -661,6 +660,13 @@ footer img {
   font: 2rem modesto-poster, serif;
   text-align: center;
   color: black;
+}
+
+.user-wrapper aside img {
+  width: 100%;
+  height: 200px;
+  background: #e6e6e6;
+  border-radius: 10px;
 }
 
 .user-wrapper aside .secondary-cta, .user-wrapper aside .btn-delete {
@@ -947,6 +953,7 @@ footer img {
 }
 
 .page-wrapper .post-wrapper {
+  width: 100%;
   margin-bottom: 1rem;
 }
 
