@@ -650,7 +650,6 @@ footer img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 25%;
-  height: 700px;
   background-color: #f0f0f0;
   border-radius: 10px;
   margin: 0 1rem;
@@ -663,11 +662,22 @@ footer img {
   color: black;
 }
 
+.user-wrapper aside img {
+  width: 100%;
+  height: 200px;
+  background: #e6e6e6;
+  border-radius: 10px;
+}
+
 .user-wrapper aside .secondary-cta, .user-wrapper aside .btn-delete {
   color: black;
   text-align: center;
   border-radius: 10px;
   border-color: black;
+  width: 80%;
+}
+
+.user-wrapper aside .cta, .user-wrapper aside .btn-login, .user-wrapper aside .btn-signup, .user-wrapper aside .btn-submit {
   width: 80%;
 }
 
@@ -947,6 +957,7 @@ footer img {
 }
 
 .page-wrapper .post-wrapper {
+  width: 100%;
   margin-bottom: 1rem;
 }
 
