@@ -13,9 +13,12 @@ module.exports = {
 
     return word;
   },
-
   randomString: (num = 32) => {
-    return crypto.randomBytes(num).toString('hex')
+    return crypto.randomBytes(num).toString('hex');
+  },
+
+  genreDropdown: (genre) => {
+    return `<a href="/discussions/${genre.id}>${genre.name}</a>`;
   }
 };
 
