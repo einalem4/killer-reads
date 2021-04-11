@@ -42,10 +42,13 @@ router.get('/', withAuth, (req, res) => {
         ]
     })
     .then(dbPostData => {
+        // console.log(dbPostData);
         const posts = dbPostData.map(post => post.get({ plain: true }));
+        const user = posts[0].user.username;
         // pass a single post object into the homepage template
         res.render('user-profile', { 
-            posts, 
+            posts,
+            user,
             loggedIn: req.session.loggedIn 
         });
     })
@@ -55,12 +58,13 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-// router.get('/', (req, res) => {
-//     if (req.session.loggedIn) {
-//         res.render('user-profile', {loggedIn: req.session.loggedIn});
-//         return;
-//     }
-//     res.redirect('/login');
-// });
+router.get('/', (req, res) => {
+    if (req.session.loggedIn) {
+        res.render('user-profile', {loggedIn: req.session.loggedIn});
+        return;
+    }
+    res.redirect('/login');
+});
+
 
 module.exports = router;
