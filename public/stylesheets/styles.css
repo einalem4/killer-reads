@@ -677,6 +677,10 @@ footer img {
   width: 80%;
 }
 
+.user-wrapper aside .cta, .user-wrapper aside .btn-login, .user-wrapper aside .btn-signup, .user-wrapper aside .btn-submit {
+  width: 80%;
+}
+
 .user-wrapper .user-posts {
   height: 700px;
   display: -webkit-box;
