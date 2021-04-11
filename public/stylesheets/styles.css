@@ -110,6 +110,20 @@
   font-size: 0.9rem;
 }
 
+.post .post-meta .btn-delete {
+  all: unset;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #0000ee;
+          text-decoration-color: #0000ee;
+  color: #0000ee;
+}
+
+.post .post-meta .btn-delete:visited {
+  color: #551a8b;
+  -webkit-text-decoration-color: #551a8b;
+          text-decoration-color: #551a8b;
+}
+
 .comments {
   width: 100%;
   color: black;

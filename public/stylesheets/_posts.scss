@@ -30,5 +30,17 @@
     .post-meta {
         color: $color-mid-grey;
         font-size: 0.9rem;
+
+        .btn-delete {
+            all: unset;
+            text-decoration: underline;
+            text-decoration-color: rgb(0, 0, 238);
+            color: rgb(0, 0, 238);
+
+            &:visited {
+                color: rgb(85, 26, 139);
+                text-decoration-color: rgb(85, 26, 139);
+            }
+        }
     }
 }

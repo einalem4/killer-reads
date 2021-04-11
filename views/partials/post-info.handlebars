@@ -14,7 +14,16 @@
 
     <div class="post-meta">
         <p>
-            Created by {{user.username}} on {{format_date created_at}} {{vote_count}} {{format_plural "point" vote_count}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            Created by {{user.username}} on {{format_date created_at}} {{vote_count}} {{format_plural "point" vote_count}} 
+            | 
+            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            |
+            <a href="/edit-post">edit post</a>
+            |
+            <button type="button" class="btn-delete">delete post</button>
         </p>    
     </div>
 </article>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
