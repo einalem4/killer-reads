@@ -12,7 +12,24 @@ Genre.hasMany(Post, {
   // onDelete: 'SET NULL'
 });
 
+User.belongsTo(Club, {
+  foreignKey: 'club_id',
+  // onDelete: 'SET NULL'
+});
+
+Post.belongsTo(User, {
+  foreignKey: 'user_id',
+  // onDelete: 'SET NULL'
+});
+
 User.hasMany(Comment, {
+  foreignKey: 'user_id',
+  // onDelete: 'SET NULL'
+});
+
+User.belongsToMany(Post, {
+  through: Vote,
+  as: 'voted_posts',
   foreignKey: 'user_id',
   // onDelete: 'SET NULL'
 });
@@ -21,26 +38,14 @@ User.hasMany(Post, {
   foreignKey: 'user_id'
 });
 
-User.belongsTo(Club, {
-  foreignKey: 'club_id',
-  // onDelete: 'SET NULL'
-});
-
 Vote.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 Vote.belongsTo(Post, {
   foreignKey: 'post_id',
-  onDelete: 'SET NULL'
-});
-
-User.belongsToMany(Post, {
-  through: Vote,
-  as: 'voted_posts',
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  // onDelete: 'SET NULL'
 });
 
 User.hasMany(Vote, {
@@ -60,10 +65,6 @@ Post.belongsTo(Genre, {
   // onDelete: 'SET NULL'
 });
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id',
-  // onDelete: 'SET NULL'
-});
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',

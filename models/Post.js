@@ -6,17 +6,15 @@ class Post extends Model {
   static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
-      genre_id: body.genre_id
+      post_id: body.post_id
     }).then(() => {
       return Post.findOne({
         where: {
-          id: body.genre_id
+          id: body.post_id
         },
         attributes: [
           'id',
           'title',
-          'author',
-          'post_text',
           'created_at',
           [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],

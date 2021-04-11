@@ -43,16 +43,16 @@ router.get('/login', (req, res) => {
 // request reset password
 router.get('/forgot-password', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/discussions');
+    res.redirect('/');
     return;
   }
   res.render('forgot-password');
 });
 
-// rest password
+// reset password
 router.get('/reset-password', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/discussions');
+    res.redirect('/');
     return;
   }
   res.render('reset-password');
