@@ -1,4 +1,4 @@
-.login-wrapper, .signup-wrapper {
+.login-wrapper, .signup-wrapper, .password-wrapper {
     @include flex(center, flex-start, column);
     background-color: $color-white;
     color: $color-black;
@@ -9,9 +9,14 @@
     h2 {
         font: 3rem $font-header;
         text-align: left;
+        line-height: 2.5rem;
     }
 
-    .login-form, .signup-form {
+    p {
+        margin-top: 1rem;
+    }
+
+    .login-form, .signup-form, .password-form {
         width: 100%;
 
         div {

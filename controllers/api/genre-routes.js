@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Genre } = require('../../models');
+const { Genre } = require('../../models');
 
 // get all genres
 router.get('/', (req, res) => {

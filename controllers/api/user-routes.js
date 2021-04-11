@@ -1,5 +1,10 @@
 const router = require('express').Router();
 const { User, Post, Comment, Vote } = require('../../models');
+const { randomString } = require('../../utils/helpers');
+// using Twilio SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // get all users
 router.get('/', (req, res) => {
@@ -66,7 +71,7 @@ router.post('/', (req, res) => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
-  
+
         res.json(dbUserData);
       });
     })
@@ -98,7 +103,7 @@ router.post('/login', (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
-  
+
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
@@ -115,10 +120,71 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//forgot password
+router.post('/forgot', (req, res) => {
+  if (!req.body.email) {
+    res.status(200).json({ message: 'If this email exists you should receive an email shortly' });
+    return;
+  }
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(async dbUserData => {
+    if (!dbUserData) {
+      res.status(200).json({ message: 'If this email exists you should receive an email shortly' });
+      return;
+    }
+    dbUserData.reset_token = randomString();
+    await dbUserData.save();
+    let link = `https://killer-reads.herokuapp.com/forgot-password?token=${dbUserData.reset_token}`
+    const msg = {
+      to: dbUserData.email,
+      from: 'killerreadsbookclub@gmail.com',
+      subject: 'Killer Reads - Reset Your Password',
+      html: `<a href="${link}">Click this link to reset password</a>`
+    }
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log('Email sent')
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+    res.json({ message: 'If this email exists you should receive an email shortly' });
+  });
+});
+
+// PUT reset password
+router.put('/reset-password', (req, res) => {
+  if (!req.body.reset_token) {
+    res.status(400).json({ message: 'reset token is required' });
+    return;
+  }
+  if (!req.body.new_password || req.body.new_password.length < 6) {
+    res.status(400).json({ message: 'password must be at least 6 characters' });
+    return;
+  }
+  User.findOne({
+    where: {
+      reset_token: req.body.reset_token
+    }
+  }).then(async dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'Invalid reset token' });
+      return;
+    }
+    dbUserData.reset_token = null;
+    dbUserData.password = req.body.new_password;
+
+    await dbUserData.save();
+    res.json({ message: 'Your password has been reset' });
+  });
+});
+
 router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {
