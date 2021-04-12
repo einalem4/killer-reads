@@ -123,8 +123,6 @@ router.get('/edit-post/:id', withAuth, (req, res) => {
     });
 });
 
-
-
 router.get('/images', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/login');
