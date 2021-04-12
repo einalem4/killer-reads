@@ -7,14 +7,6 @@
     </aside>
 
     <section class="user-posts">
-        <div class="sort">
-            <p>Sort by:</p>
-            <select name="genre" id="genre">
-                <option value="">post</option>
-                <option value="">comments</option>
-                <option value="">following</option>
-            </select>
-        </div>
         <ol class="feed-list">
             {{#if posts.length}}
                 {{#each posts as |post|}}

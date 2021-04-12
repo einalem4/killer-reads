@@ -18,8 +18,12 @@
             color: $color-black;
             margin: 1rem 0;
 
-            p {
-                margin-right: 1rem;
+            form {
+                @include flex(flex-start, center, row);
+
+                p {
+                    margin-right: 1rem;
+                }
             }
         }
     }
