@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 // creates Post model
 class Genre extends Model { }
 
-// creates fields/columns for Post model
+// creates fields/columns for Genre model
 Genre.init(
   {
     id: {
@@ -16,13 +16,6 @@ Genre.init(
     name: {
       type: DataTypes.STRING
     }
-    // post_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'post',
-    //     key: 'id'
-    //   }
-    // }
   },
   {
     sequelize,
