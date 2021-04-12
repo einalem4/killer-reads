@@ -61,7 +61,7 @@ Post.init(
       }
     },
     post_text: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       validate: {
         len: [1]
       }
