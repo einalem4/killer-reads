@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Killer Reads</title>
+    <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.typekit.net/xvy6hog.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/"><img src="/assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" /></a> 
+            <nav class="navbar">
+                {{!-- {{#if loggedIn}} --}}
+                <a href="/user-profile" class="btn-nav">my profile</a>
+                <a href="/dashboard" class="btn-nav">new post</a>
+                {{!-- {{/if}} --}}
+                <div class="dropdown">
+                    <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
+                    <div class="dropdown-list">
+                        <a href="/discussions/1">Comedy</a>
+                        <a href="/discussions/2">Dark-Fantasy</a>
+                        <a href="/discussions/3">Gothic</a>
+                        <a href="/discussions/4">Lovecraftian</a>
+                        <a href="/discussions/5">Paranormal</a>
+                        <a href="/discussions/6">Post-Apocalyptic</a>
+                        <a href="/discussions/7">Psychological</a>
+                        <a href="/discussions/8">Sci-Fi</a>
+                        <a href="/discussions/9">Slasher</a>
+                        <a href="/discussions/10">Supernatural</a>
+                        <a href="/discussions/11">Other</a>
+                    </div>
+                </div>
+                
+                {{#if loggedIn}}
+                <button class="btn-no-style btn-nav cta" id="desktop-logout">logout</button>
+                {{else}}
+                <a href="/login" class="btn-nav cta">login</a>
+                {{/if}}
+                <a href="/signup" class="btn-nav secondary-cta">sign up</a>
+            </nav>
+            <div class="ham-menu" id="ham-menu">
+                <div class="bar-1"></div>
+                <div class="bar-2"></div>
+                <div class="bar-3"></div>
+            </div>
+
+            <nav class="side-nav" id="side-nav">
+                <div class="side-nav-links-wrapper">
+                    {{!-- {{#if loggedIn}} --}}
+                    <a href="/user-profile" class="btn-nav">my profile</a>
+                    <a href="/new-post" class="btn-nav">new post</a>
+                    {{!-- {{/if}} --}}
+                    <div class="dropdown">
+                    <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
+                    <div class="dropdown-list">
+                            <a href="/discussions/1">Comedy</a>
+                            <a href="/discussions/2">Dark-Fantasy</a>
+                            <a href="/discussions/3">Gothic</a>
+                            <a href="/discussions/4">Lovecraftian</a>
+                            <a href="/discussions/5">Paranormal</a>
+                            <a href="/discussions/6">Post-Apocalyptic</a>
+                            <a href="/discussions/7">Psychological</a>
+                            <a href="/discussions/8">Sci-Fi</a>
+                            <a href="/discussions/9">Slasher</a>
+                            <a href="/discussions/10">Supernatural</a>
+                            <a href="/discussions/11">Other</a>
+                        </div>
+                    </div>
+                    <a href="/create-post" class="btn-nav">new post</a>
+                </div>
+                
+                <div class="side-nav-btn-wrapper">
+                    {{#if loggedIn}}
+                    <button class="btn-no-style btn-nav cta" id="mobile-logout">logout</button>
+                    {{else}}
+                    <a href="/login" class="btn-nav cta">login</a>
+                    {{/if}}
+                    <a href="/signup" class="btn-nav secondary-cta">sign up</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+          {{{body}}}
+        </main>
+
+        <footer>
+            <img src="/assets/logo/killer-reads-logo.svg" id="footer-logo" alt="Killer Reads Logo" />
+            
+            <nav>
+                {{#if loggedIn}}
+                <button class="btn-no-style btn-nav" id="footer-logout">logout</button>
+                {{else}}
+                <a href="/login" class="btn-nav">login</a>
+                {{/if}}
+
+                <a href="/signup" class="btn-nav">sign up</a>
+                <a href="/about" class="btn-nav">about</a>
+                <a href="/contact" class="btn-nav">contact</a>
+                <a href="/privacy" class="btn-nav">privacy policy</a>
+            </nav>
+
+            <div class="social-wrapper">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="/assets/icons/social-facebook.svg" alt="Facebook Link">
+                </a>
+
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="/assets/icons/social-instagram.svg" alt="Instagram Link">
+                </a>
+
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="/assets/icons/social-twitter.svg" alt="Twitter Link">
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/javascript/mobile-nav.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+</html>

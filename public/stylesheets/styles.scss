@@ -1,0 +1,61 @@
+@mixin flex ($justify, $align, $direction) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+@import './variables';
+@import './buttons';
+@import './posts';
+@import './comments';
+@import './navigation';
+@import './footer';
+@import './landing';
+@import './user-account';
+@import './discussions';
+@import './login-signup';
+@import './create-post';
+@import './single-post';
+
+html {
+    font-size: 16px;
+    font-family: $font-body;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: $color-white;
+    background-image: url("../assets/background/static-background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: $color-grey;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    @include flex(space-between, center, column);
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    width: 100vw;
+}
+
+section {
+    width: 80%;
+    margin: 4rem auto;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+}
+

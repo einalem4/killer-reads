@@ -1,0 +1,82 @@
+.user-wrapper {
+    @include flex(space-between, flex-start, row);
+    width: 80%;
+    margin: 4rem auto;
+
+    aside {
+        @include flex(flex-start, center, column);
+        width: 25%;
+        background-color: $color-white;
+        border-radius: 10px;
+        margin: 0 1rem;
+        padding: 1rem;
+
+        h2 {
+            font: 2rem $font-header;
+            text-align: center;
+            color: $color-black;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            background: $color-grey;
+            border-radius: 10px;
+        }
+
+        .secondary-cta {
+            color: $color-black;
+            text-align: center;
+            border-radius: 10px;
+            border-color: $color-black;
+            width: 80%;
+        }
+
+        .cta {
+            width: 80%;
+        }
+    }
+
+    .user-posts {
+        height: 700px;
+        @include flex(flex-start, stretch, column);
+        background-color: $color-white;
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 0 auto;
+        overflow-y: scroll;
+
+        .sort {
+            @include flex(flex-start, center, row);
+            color: $color-black;
+            margin: 1rem 0;
+
+            p {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    ol {
+        list-style-type: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .user-wrapper {
+        @include flex(center, space-between, column);
+        width: 90%;
+        margin: 0 auto;
+
+        aside {
+            @include flex(flex-start, center, column);
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .user-posts {
+            width: 100%;
+            margin: 1rem auto;
+        }
+    }    
+}

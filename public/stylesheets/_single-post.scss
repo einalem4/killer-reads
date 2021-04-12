@@ -1,0 +1,87 @@
+.page-wrapper {
+    @include flex(flex-start, flex-start, column);
+    background-color: $color-white;
+    border-radius: 10px;
+    width: 80%;
+    min-height: 700px;
+    margin: 4rem auto;
+    padding: 1rem;
+
+    .post-wrapper {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        .post {
+            background-color: $color-dark-grey;
+            border: 1px solid $color-dark-grey;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            margin-bottom: 0;
+    
+            .post-info {
+                @include flex(space-between, center, row);
+        
+                a {
+                    text-decoration: none;
+                    color: $color-white;
+                }    
+        
+                h3 {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    display: inline-block;
+                }
+        
+                h4 {
+                    font-weight: 400;
+                    font-style: italic;
+                    display: inline-block;
+                }  
+            }
+        }
+    
+        .post-text {
+            border: 1px solid $color-dark-grey;
+            border-radius: 0 0 10px 10px;
+            padding: 1rem;
+            margin-top: 0;
+    
+            p {
+                color: $color-black;
+            }
+        }
+    }   
+
+    .comment-form {
+        width: 100%;
+        margin-bottom: 1rem;
+
+        textarea {
+            width: 100%;
+            height: 160px;
+        }
+
+        button {
+            @extend .btn-nav;
+            margin: 0.5rem 0;
+            width: auto;
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .page-wrapper {
+        width: 90%;
+
+        .comment-form {
+    
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

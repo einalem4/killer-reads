@@ -1,0 +1,59 @@
+.btn-nav {
+    font: 100% $font-body;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $color-white;
+    margin: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-red;
+    }
+}
+
+.btn-no-style {
+    border: none;
+    background-color: transparent;
+    
+}
+
+.cta {
+    border: 1px solid $color-red;
+    border-radius: 10px;
+    background-color: $color-red;
+    padding: 5px 30px;
+    width: 150px;
+    text-align: center;
+
+    &:hover {
+        color: $color-white;
+        // border-color: $color-dark-grey;
+        // background-color: $color-dark-grey;
+    }
+}
+
+.secondary-cta {
+    color: none;
+    border: 1px solid $color-white;
+    border-radius: 10px;
+    padding: 5px 30px;
+    width: 150px;
+    text-align: center;
+}
+
+.btn-login, .btn-signup, .btn-submit, {
+    @extend .btn-nav;
+    @extend .cta;
+    width: 100%;
+    margin: 0;
+}
+
+.btn-delete {
+    @extend .btn-nav;
+    @extend .secondary-cta;
+    color: $color-black;
+    border: 1px solid $color-black;
+    width: 100%;
+    margin: 1rem 0;
+}

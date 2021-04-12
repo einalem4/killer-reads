@@ -1,0 +1,39 @@
+<section class="dashboard-wrapper">
+    <h2>edit post</h2>
+    <form class="post-form">
+        <div>
+            <label for="title">title:</label>
+            <input type="text" id="title" value="{{post.title}}" name="title">
+        </div>
+        <div>
+            <label for="author">author:</label>
+            <input type="text" id="author" value="{{post.author}}" name="author">
+        </div>
+        <div>
+            <label for="genre">genre:</label>
+            <select name="genre" id="genre">
+                <option value="">Choose a genre</option>
+                <option value="comedy-horror">Comedy-Horror</option>
+                <option value="dark-fantasy">Dark-Fantasy</option>
+                <option value="gothic">Gothic</option>
+                <option value="lovecraftian">Lovecraftian</option>
+                <option value="paranormal">Paranormal</option>
+                <option value="post-apocalyptic">Post-Apocalyptic</option>
+                <option value="psychological">Psychological</option>
+                <option value="sci-fi">Sci-Fi Horror</option>
+                <option value="slasher">Slasher</option>
+                <option value="supernatural">Supernatural</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="text">text:</label>
+            <textarea name="text" id="text">{{post.post_text}}</textarea>
+        </div>
+        <button type="submit" class="btn-submit">save post</button>
+        <button type="button" class="btn-delete">delete post</button>
+    </form>
+</section>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>

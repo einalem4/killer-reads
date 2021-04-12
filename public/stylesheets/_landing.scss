@@ -1,0 +1,210 @@
+.jumbotron {
+    @include flex(space-around, center, row);
+
+    .copy {
+        @include flex(flex-start, flex-start, column);
+        width: 35%;
+    
+        h1 {
+            font: 5rem $font-header;
+            line-height: 5rem;
+        }
+    
+        p {
+            font: 1.5rem $font-body;
+        }
+    
+        .cta {
+            margin: 2rem 0;
+            width: 200px;
+        }
+    }
+}
+
+
+
+.botm {
+    background-color: $color-white;
+    border-radius: 10px;
+    @include flex(space-around, center, row);
+    padding: 1rem;
+
+    img {
+        width: 50%;
+    }
+    .copy {
+
+        h2 {
+            font: 4.5rem $font-header;
+            color: $color-red;
+        }
+
+        p, h3 {
+            color: $color-mid-grey;
+        }
+
+        .botm-subheader {
+            text-transform: uppercase;
+            position: relative;
+            top: 0.75rem;
+        }
+
+        .botm-author {
+            font-weight: 400;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        .secondary-cta {
+            color: $color-red;
+            border-color: $color-red;
+            margin: 1rem 0;
+            width: 300px;
+
+            &:hover {
+                background-color: $color-red;
+                color: $color-white;
+            }
+        }
+    }
+}
+
+.features {
+    @include flex(center, space-around, column);
+
+    h2 {
+        color: $color-red;
+        font: 4rem $font-header;
+        text-align: center;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+        .feature-card {
+            @include flex(flex-end, center, column);
+            text-align: center;
+            color: $color-black;
+        }
+            img {
+                width: 30%;
+                margin: 0.75rem;
+            }
+
+            h3 {
+                font: 2rem $font-header;
+            }
+            
+            p {
+                font: 1rem $font-body;
+            }
+
+            #clubs-icon {
+                width: 50%;
+            }
+}
+
+.pop-discuss {
+    @include flex(center, center, column);
+
+    h2 {
+        color: $color-red;
+        font: 4rem $font-header;
+        text-align: center;
+        line-height: 3rem;
+    }
+
+    .discuss-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+        margin-top: 2rem;
+    }
+        .discuss-card {
+            @include flex(flex-end, center, column);
+            display: flex;
+            text-align: center;
+            color: $color-black;
+            background-color: $color-white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+            img {
+                width: 50%;
+                margin: 0.75rem;
+            }
+
+            h3 {
+                font: 2rem $font-header;
+            }
+
+            h4 {
+                font-size: 1.25rem;
+                text-transform: uppercase;
+                font-weight: 400;
+            }
+            
+            h5 {
+                font-size: 1rem;
+                font-weight: 400;
+                font-style: italic;
+            }
+
+            .secondary-cta {
+                color: $color-red;
+                border-color: $color-red;
+                margin: 1rem 0;
+                width: 300px;
+
+                &:hover {
+                    background-color: $color-red;
+                    color: $color-white;
+                }
+            }
+}
+
+@media only screen and (max-width: 768px) {
+    .jumbotron {
+        @include flex(space-around, center, column);
+
+        .copy {
+            width: 100%;
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    .botm {
+        @include flex(space-around, center, column);
+        text-align: center;
+        width: 90%;
+
+        img {
+            width: 100%
+        }
+    }
+
+    .features {
+        width: 90%;
+
+        .feature-grid {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+        }
+    }
+
+    .pop-discuss {
+        width: 90%;
+
+        .discuss-grid {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+            column-gap: 1rem;
+            margin-top: 2rem;
+        }
+    }
+}

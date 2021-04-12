@@ -1,0 +1,17 @@
+
+<div class="discussions-wrapper">
+    <section class="feed">
+        <ol class="feed-list">
+            {{#each posts as |post|}}
+            <li>
+                {{> post-info post}}
+            </li>
+            {{/each}}
+        </ol>
+    </section>
+</div>
+
+{{!-- {{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
+{{/if}} --}}

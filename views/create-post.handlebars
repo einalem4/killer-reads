@@ -1,0 +1,37 @@
+<section class="dashboard-wrapper">
+    <h2>create new post</h2>
+    <form class="post-form new-post-form">
+        <div>
+            <label for="title">title:</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div>
+            <label for="author">author:</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <div>
+            <label for="genre">genre:</label>
+            <select name="genre" id="genre">
+                <option value="">Choose a genre</option>
+                <option value="1">Comedy-Horror</option>
+                <option value="2">Dark-Fantasy</option>
+                <option value="3">Gothic</option>
+                <option value="4">Lovecraftian</option>
+                <option value="5">Paranormal</option>
+                <option value="6">Post-Apocalyptic</option>
+                <option value="7">Psychological</option>
+                <option value="8">Sci-Fi Horror</option>
+                <option value="9">Slasher</option>
+                <option value="10">Supernatural</option>
+                <option value="11">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="text">text:</label>
+            <textarea name="text" id="text"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">submit</button>
+    </form>
+</section>
+
+<script src="/javascript/add-post.js"></script>

@@ -1,0 +1,46 @@
+.post {
+    @include flex(space-between, stretch, column);
+    background-color: $color-grey;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+
+    .post-info {
+        @include flex(space-between, center, row);
+
+        a {
+            text-decoration: none;
+            color: $color-black;
+        }    
+
+        h3 {
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        h4 {
+            font-weight: 400;
+            font-style: italic;
+            display: inline-block;
+        }  
+    }
+
+    .post-meta {
+        color: $color-mid-grey;
+        font-size: 0.9rem;
+
+        .btn-delete {
+            all: unset;
+            text-decoration: underline;
+            text-decoration-color: rgb(0, 0, 238);
+            color: rgb(0, 0, 238);
+
+            &:visited {
+                color: rgb(85, 26, 139);
+                text-decoration-color: rgb(85, 26, 139);
+            }
+        }
+    }
+}

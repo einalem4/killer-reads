@@ -1,0 +1,30 @@
+<section class="page-wrapper">
+    <div class="post-wrapper">
+        {{> post-info post }}
+        <article class="post-text">
+            <p>
+                {{post.post_text}}
+            </p>
+        </article>
+    </div>    
+
+    {{#if loggedIn}}
+    <form class="comment-form">
+      <div>
+        <textarea name="comment-body"></textarea>
+      </div>
+
+      <div>
+        <button type="submit" class="cta">add comment</button>
+        <button type="button" class="upvote-btn cta">upvote</button>
+      </div>
+    </form>
+    {{/if}}
+
+    {{> comments post.comments}}
+</section>
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
+{{/if}}
