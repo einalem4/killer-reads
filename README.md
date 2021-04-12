@@ -12,7 +12,7 @@ An online book club platform catering to the horror community. Create posts, lea
 
 ![Killer Reads Landing Page](./screenshot/killer-reads-screenshot.png)
 ![Killer Reads Discussions Page](./screenshot/killer-reads-screenshot-2.png)
-![Killer Reads Dashboard Page](./screenshot/killer-reads-screensho3.png)
+![Killer Reads Dashboard Page](./screenshot/killer-reads-screenshot-3.png)
 
 ## Deployed Application <a name="deployed"></a>
 [Killer Reads](https://killer-reads.herokuapp.com/)
