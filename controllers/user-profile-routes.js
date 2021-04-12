@@ -78,7 +78,11 @@ router.get('/', (req, res) => {
 
 // gets edit page based on selected post id
 router.get('/edit-post/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
+  Post.findOne({
+    where: {
+      id:req.params.id,
+      user_id:req.session.user_id,
+    },
     attributes: [
       'id',
       'post_text',
