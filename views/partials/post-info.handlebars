@@ -1,0 +1,28 @@
+<article class="post">
+    <div class="post-info">
+        <div class="book-info">
+            <a href="/post/{{id}}">
+                <h3>{{title}}</h3>
+                <h4>{{author}}</h4>
+            </a> 
+        </div>
+        
+        <a href="/discussions/{{id}}">
+            <h4>{{genre.name}}</h4>
+        </a>
+    </div>    
+
+    <div class="post-meta">
+        <p>
+            Created by {{user.username}} on {{format_date created_at}} 
+            |
+            {{vote_count}} {{format_plural "point" vote_count}} 
+            | 
+            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            |
+            <a href="/user-profile/edit-post/{{id}}">edit post</a>
+        </p>    
+    </div>
+</article>
+
+<script src="/javascript/edit-post.js"></script>

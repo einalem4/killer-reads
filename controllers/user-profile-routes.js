@@ -49,14 +49,16 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPostData => {
         // console.log(dbPostData);
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        const user = req.session.username
+        const usernamedir = req.session.username;
+        const uid = req.session.user_id;
         console.log("posts: " + JSON.stringify(posts));
         console.log(posts);
         console.log(req.session.user);
         // pass a single post object into the homepage template
         res.render('user-profile', { 
             posts,
-            user,
+            usernamedir,
+            uid,
             loggedIn: req.session.loggedIn 
         });
     })

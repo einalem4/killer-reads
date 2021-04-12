@@ -42,13 +42,13 @@ router.post('/', withAuth, (req, res) => {
   }
 
   profilePicture = req.files.file;
-  uploadPath = "./public/assets/uploads/" + profilePicture.name;
+  uploadPath = "./assets/upload/" + profilePicture.name;
   // console.log(profilePicture);
 
-  // const name = "asdf";
-  // const data = "fdsa";
-  // const url = "dfdf";
-  // const user_id = "asas";
+  profilePicture.mv(uploadPath, function(err) {
+    if(err) return res.status(500).send(err);
+  })
+
   console.log("====================================================");
   console.log("req.files.file: " + req.files);
 
@@ -64,7 +64,7 @@ router.post('/', withAuth, (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(err);
+      // res.status(500).json(err);
     });
 });
 
