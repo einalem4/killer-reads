@@ -1,6 +1,27 @@
 
 <div class="discussions-wrapper">
+    
     <section class="feed">
+        <div class="sort">
+            <form class="sort-form">
+                <p>Sort by:</p>
+                <select name="genre" id="sort-genre">
+                    <option value="">----</option>
+                    <option value="">All</option>
+                    <option value="1" {{{setSelected post.genre.id 1}}}>Comedy-Horror</option>
+                    <option value="2" {{{setSelected post.genre.id 2}}}>Dark-Fantasy</option>
+                    <option value="3" {{{setSelected post.genre.id 3}}}>Gothic</option>
+                    <option value="4" {{{setSelected post.genre.id 4}}}>Lovecraftian</option>
+                    <option value="5" {{{setSelected post.genre.id 5}}}>Paranormal</option>
+                    <option value="6" {{{setSelected post.genre.id 6}}}>Post-Apocalyptic</option>
+                    <option value="7" {{{setSelected post.genre.id 7}}}>Psychological</option>
+                    <option value="8" {{{setSelected post.genre.id 8}}}>Sci-Fi Horror</option>
+                    <option value="9" {{{setSelected post.genre.id 9}}}>Slasher</option>
+                    <option value="10" {{{setSelected post.genre.id 10}}}>Supernatural</option>
+                    <option value="11" {{{setSelected post.genre.id 11}}}>Other</option>
+                </select>
+            </form>
+        </div>
         <ol class="feed-list">
             {{#each posts as |post|}}
             <li>
@@ -11,6 +32,7 @@
     </section>
 </div>
 
+<script src="/javascript/sort-genre.js"></script>
 {{!-- {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>
