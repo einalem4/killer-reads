@@ -83,51 +83,52 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/edit/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
-    attributes: [
-      'id',
-      'post_text',
-      'author',
-      'title',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      },
-      {
-        model: Genre,
-        attributes: ['id', 'name']
-      }
-    ]
-  })
-    .then(dbPostData => {
-      if (dbPostData) {
-        const post = dbPostData.get({ plain: true });
+// router.get('/edit-post/:id', withAuth, (req, res) => {
+//   Post.findByPk(req.params.id, {
+//     attributes: [
+//       'id',
+//       'post_text',
+//       'author',
+//       'title',
+//       'genre_id',
+//       'created_at',
+//       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+//     ],
+//     include: [
+//       {
+//         model: Comment,
+//         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+//         include: {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       },
+//       {
+//         model: User,
+//         attributes: ['username']
+//       },
+//       {
+//         model: Genre,
+//         attributes: ['id', 'name']
+//       }
+//     ]
+//   })
+//     .then(dbPostData => {
+//       if (dbPostData) {
+//         const post = dbPostData.get({ plain: true });
         
-        res.render('edit-post', {
-          post,
-          loggedIn: true
-        });
-      } else {
-        res.status(404).end();
-      }
-    })
-    .catch(err => {
-      res.status(500).json(err);
-    });
-})
+//         res.render('edit-post', {
+//           post,
+//           loggedIn: true
+//         });
+//       } else {
+//         res.status(404).end();
+//       }
+//     })
+//     .catch(err => {
+//       res.status(500).json(err);
+//     });
+// })
 
 // create new post
 router.post('/', withAuth, (req, res) => {
