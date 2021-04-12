@@ -23,7 +23,7 @@ async function editFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/user-profile/');
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
