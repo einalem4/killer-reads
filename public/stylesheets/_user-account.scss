@@ -61,3 +61,22 @@
         list-style-type: none;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .user-wrapper {
+        @include flex(center, space-between, column);
+        width: 90%;
+        margin: 0 auto;
+
+        aside {
+            @include flex(flex-start, center, column);
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .user-posts {
+            width: 100%;
+            margin: 1rem auto;
+        }
+    }    
+}

@@ -4,7 +4,11 @@ const { Post, User, Comment } = require('../models');
 
 // edit post page
 router.get('/edit-post', (req, res) => {
-  res.render('edit-post');
+  if (req.session.loggedIn) {
+    res.redirect('/edit-post');
+    return;
+  }
+  res.render('login');
 });
 
 // single post page

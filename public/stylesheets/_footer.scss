@@ -28,3 +28,21 @@ footer {
             width: 20%;
         }
 }
+
+@media only screen and (max-width: 768px) {
+    footer {
+        padding: 2rem 0.5rem;
+
+        #footer-logo {
+            width: 50%;
+        }
+    
+        nav {
+            @include flex(center, center, column);
+    
+            .btn-nav {
+                width: auto;
+            }
+        }
+    }
+}
