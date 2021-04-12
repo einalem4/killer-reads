@@ -19,6 +19,13 @@ module.exports = {
 
   genreDropdown: (genre) => {
     return `<a href="/discussions/${genre.id}>${genre.name}</a>`;
+  },
+
+  setSelected: (id, val) => {
+    if (id === val) {
+      return 'selected="selected"'
+    }
+    return '';
   }
 };
 

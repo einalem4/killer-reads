@@ -3,7 +3,6 @@ const Post = require('./Post');
 const User = require('./User');
 const Comment = require('./Comment');
 const Vote = require('./Vote');
-const Club = require('./Club');
 const Genre = require('./Genre');
 const Image = require('./Image');
 
@@ -19,11 +18,6 @@ Image.belongsTo(User, {
 
 Genre.hasMany(Post, {
   foreignKey: 'genre_id',
-  // onDelete: 'SET NULL'
-});
-
-User.belongsTo(Club, {
-  foreignKey: 'club_id',
   // onDelete: 'SET NULL'
 });
 
@@ -85,9 +79,5 @@ Comment.belongsTo(Post, {
   // onDelete: 'SET NULL'
 });
 
-Club.hasMany(User, {
-  foreignKey: 'club_id',
-  // onDelete: 'SET NULL'
-});
 
-module.exports = { User, Post, Vote, Comment, Club, Genre, Image };
+module.exports = { User, Post, Vote, Comment, Genre, Image };

@@ -5,10 +5,11 @@ const { Post, User, Comment, Genre } = require('../models');
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
-            'id', 
-            'title', 
+            'id',
+            'title',
             'author',
-            'post_text', 
+            'user_id',
+            'post_text',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
@@ -20,13 +21,13 @@ router.get('/', (req, res) => {
             {
                 model: Comment,
                 attributes: [
-                    'id', 
-                    'comment_text', 
-                    'post_id', 
-                    'user_id', 
+                    'id',
+                    'comment_text',
+                    'post_id',
+                    'user_id',
                     'created_at'
                 ],
-                include: 
+                include:
                 {
                     model: User,
                     attributes: ['username']
@@ -38,18 +39,23 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        // pass a single post object into the homepage template
-        res.render('discussions', { 
-            posts, 
-            loggedIn: req.session.loggedIn 
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }))
+                .map(post => {
+                    let p = { ...post };
+                    p.isMine = p.user_id === req.session.user_id;
+                    return p;
+                })
+            // pass a single post object into the homepage template
+            res.render('discussions', {
+                posts,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
 // genre posts by genre
@@ -59,10 +65,10 @@ router.get('/:id', (req, res) => {
             genre_id: req.params.id
         },
         attributes: [
-            'id', 
-            'title', 
+            'id',
+            'title',
             'author',
-            'post_text', 
+            'post_text',
             'created_at',
             [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
@@ -74,13 +80,13 @@ router.get('/:id', (req, res) => {
             {
                 model: Comment,
                 attributes: [
-                    'id', 
-                    'comment_text', 
-                    'post_id', 
-                    'user_id', 
+                    'id',
+                    'comment_text',
+                    'post_id',
+                    'user_id',
                     'created_at'
                 ],
-                include: 
+                include:
                 {
                     model: User,
                     attributes: ['username']
@@ -92,18 +98,18 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-    .then(dbPostData => {
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        // pass a single post object into the homepage template
-        res.render('discussions', { 
-            posts, 
-            loggedIn: req.session.loggedIn 
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            // pass a single post object into the homepage template
+            res.render('discussions', {
+                posts,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
 });
 
 // router.get('/', (req, res) => {

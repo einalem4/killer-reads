@@ -20,7 +20,9 @@
             | 
             <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
             |
+            {{#if isMine}}
             <a href="/user-profile/edit-post/{{id}}">edit post</a>
+            {{/if}}
         </p>    
     </div>
 </article>

@@ -13,6 +13,7 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'author',
+      'user_id',
       'post_text',
       'created_at'
     ],
@@ -49,7 +50,12 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       // console.log(dbPostData);
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+      const posts = dbPostData.map(post => post.get({ plain: true }))
+        .map(post => {
+          let p = { ...post };
+          p.isMine = p.user_id === req.session.user_id;
+          return p;
+        })
       const user = req.session.username
       console.log("posts: " + JSON.stringify(posts));
       console.log(posts);
@@ -78,7 +84,11 @@ router.get('/', (req, res) => {
 
 // gets edit page based on selected post id
 router.get('/edit-post/:id', withAuth, (req, res) => {
-  Post.findByPk(req.params.id, {
+  Post.findOne({
+    where: {
+      id: req.params.id,
+      user_id: req.session.user_id,
+    },
     attributes: [
       'id',
       'post_text',

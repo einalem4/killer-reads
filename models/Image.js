@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// creates User model
+// creates Image model
 class Image extends Model {}
 
-// creates fields/columns for User model
+// creates fields/columns for Image model
 Image.init(
   {
     id: {
