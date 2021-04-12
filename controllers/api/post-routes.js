@@ -33,7 +33,7 @@ router.get('/', (req, res) => {
       },
       {
         model: Genre,
-        attributes: ['name']
+        attributes: ['id', 'name']
       }
     ]
   })
@@ -63,6 +63,10 @@ router.get('/:id', (req, res) => {
         model: User,
         attributes: ['username']
       }
+    },
+    {
+      model: Genre,
+      attributes: ['id', 'name']
     }
     ]
   })
@@ -101,6 +105,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
       {
         model: User,
         attributes: ['username']
+      },
+      {
+        model: Genre,
+        attributes: ['id', 'name']
       }
     ]
   })
