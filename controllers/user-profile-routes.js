@@ -74,10 +74,6 @@ router.get('/', withAuth, (req, res) => {
 //     res.redirect('/login');
 // });
 
-
-
-
-
 // gets edit page based on selected post id
 router.get('/edit-post/:id', withAuth, (req, res) => {
     Post.findByPk(req.params.id, {
