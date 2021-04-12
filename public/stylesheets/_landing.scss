@@ -7,6 +7,7 @@
     
         h1 {
             font: 5rem $font-header;
+            line-height: 5rem;
         }
     
         p {
@@ -24,7 +25,7 @@
 
 .botm {
     background-color: $color-white;
-    border-radius: 25px;
+    border-radius: 10px;
     @include flex(space-around, center, row);
     padding: 1rem;
 
@@ -59,6 +60,11 @@
             border-color: $color-red;
             margin: 1rem 0;
             width: 300px;
+
+            &:hover {
+                background-color: $color-red;
+                color: $color-white;
+            }
         }
     }
 }
@@ -106,6 +112,7 @@
         color: $color-red;
         font: 4rem $font-header;
         text-align: center;
+        line-height: 3rem;
     }
 
     .discuss-grid {
@@ -120,7 +127,7 @@
             text-align: center;
             color: $color-black;
             background-color: $color-white;
-            border-radius: 25px;
+            border-radius: 10px;
             padding: 20px;
         }
 
@@ -150,6 +157,11 @@
                 border-color: $color-red;
                 margin: 1rem 0;
                 width: 300px;
+
+                &:hover {
+                    background-color: $color-red;
+                    color: $color-white;
+                }
             }
 }
 
@@ -169,6 +181,7 @@
     .botm {
         @include flex(space-around, center, column);
         text-align: center;
+        width: 90%;
 
         img {
             width: 100%
@@ -176,6 +189,8 @@
     }
 
     .features {
+        width: 90%;
+
         .feature-grid {
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 1rem;
@@ -183,6 +198,8 @@
     }
 
     .pop-discuss {
+        width: 90%;
+
         .discuss-grid {
             grid-template-columns: repeat(1, 1fr);
             grid-gap: 1rem;

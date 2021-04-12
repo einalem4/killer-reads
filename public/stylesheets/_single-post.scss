@@ -63,11 +63,24 @@
 
         button {
             @extend .btn-nav;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
             width: auto;
 
             &:hover {
                 color: $color-white;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .page-wrapper {
+        width: 90%;
+
+        .comment-form {
+    
+            button {
+                width: 100%;
             }
         }
     }

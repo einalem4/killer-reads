@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'post_text', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
+    attributes: ['id', 'author', 'post_text', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
     include: [{
       model: User,
       attributes: ['username']
@@ -84,6 +84,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'post_text',
+      'author',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -127,7 +128,7 @@ router.post('/', withAuth, (req, res) => {
     author: req.body.author,
     post_text: req.body.post_text,
     user_id: req.session.user_id,
-    genre_id: req.session.genre_id
+    genre_id: req.body.genre_id
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

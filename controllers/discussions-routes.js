@@ -51,7 +51,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-  
+
+// genre posts by genre
 router.get('/:id', (req, res) => {
     Post.findAll({
         where: {
@@ -105,16 +106,16 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
-    Genre.findAll()
-    .then(dbGenreData => {
-      const genres = dbGenreData.map(genre => genre.get({plain : true}));
-      res.render('landing', {genres})
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
+// router.get('/', (req, res) => {
+//     Genre.findAll()
+//     .then(dbGenreData => {
+//       const genres = dbGenreData.map(genre => genre.get({plain : true}));
+//       res.render('landing', {genres})
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;
