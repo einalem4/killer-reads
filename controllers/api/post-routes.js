@@ -117,7 +117,8 @@ router.put('/:id', withAuth, (req, res) => {
     content: req.body.content
   }, {
     where: {
-      id: req.params.id
+      id: req.params.id,
+      user_id:req.session.user_id,
     }
   }).then(dbPostData => {
     if (!dbPostData) {
