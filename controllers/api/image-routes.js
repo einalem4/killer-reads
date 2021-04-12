@@ -1,10 +1,8 @@
-// // sets necesarry dependencies
 const path = require('path');
 const router = require('express').Router();
-const { Image, User, Comment } = require('../../models');
+const { Image, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 // const uploadPath = __basedir + "/assets/uploads";
-
 
 router.get('/', (req, res) => {
   Image.findAll({
