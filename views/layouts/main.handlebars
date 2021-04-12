@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Killer Reads</title>
+    <link rel="shortcut icon" href="/assets/icons/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://use.typekit.net/xvy6hog.css">
     <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
@@ -15,10 +16,10 @@
         <header>
             <a href="/"><img src="/assets/logo/killer-reads-logo.svg" id="main-logo" alt="Killer Reads Logo" /></a> 
             <nav class="navbar">
-                {{#if loggedIn}}
+                {{!-- {{#if loggedIn}} --}}
                 <a href="/user-profile" class="btn-nav">my profile</a>
                 <a href="/dashboard" class="btn-nav">new post</a>
-                {{/if}}
+                {{!-- {{/if}} --}}
                 <div class="dropdown">
                     <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
                     <div class="dropdown-list">
@@ -51,10 +52,10 @@
 
             <nav class="side-nav" id="side-nav">
                 <div class="side-nav-links-wrapper">
-                    {{#if loggedIn}}
+                    {{!-- {{#if loggedIn}} --}}
                     <a href="/user-profile" class="btn-nav">my profile</a>
                     <a href="/new-post" class="btn-nav">new post</a>
-                    {{/if}}
+                    {{!-- {{/if}} --}}
                     <div class="dropdown">
                     <a href="/discussions" class="btn-no-style btn-nav">discussions</a>
                     <div class="dropdown-list">
@@ -121,8 +122,7 @@
         </footer>
     </div>
 
-    <script src="./javascript/mobile-nav.js"></script>
-
+    <script src="/javascript/mobile-nav.js"></script>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

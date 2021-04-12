@@ -102,12 +102,17 @@ router.post('/login', (req, res) => {
     req.session.save(() => {
       req.session.email = dbUserData.email;
       req.session.user_id = dbUserData.id;
+      req.session.email = dbUserData.email;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
-  });
+  })
+  .catch(err => {
+    console.log(err); 
+    res.json(err);
+  });  
 });
 
 router.post('/logout', (req, res) => {
