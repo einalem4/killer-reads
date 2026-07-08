@@ -18,7 +18,7 @@ binding = "IMAGES_BUCKET"
 bucket_name = "killer-reads-images"
 
 [vars]
-SERVICE_URL = "http://localhost:8787"
+SERVICE_URL = "https://killer-reads.npc-labs.workers.dev"
 
 # Secrets (set with `wrangler secret put <NAME>`, not stored here):
 #   SESSION_SECRET      - random string used to sign session cookies
