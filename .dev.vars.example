@@ -1,0 +1,15 @@
+# Copy this file to `.dev.vars` and fill in real values for local development.
+# `.dev.vars` is gitignored and only used by `wrangler dev` (local); it has no
+# effect on the deployed Worker -- see the README for the `wrangler secret put`
+# commands needed for production.
+
+# Any long random string, used to sign the session-id cookie. Required --
+# without it, login/signup will throw when creating a session.
+# Generate one with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+SESSION_SECRET=replace-with-a-long-random-string
+
+# SendGrid API key, used to send the "forgot password" reset-link email.
+# Optional for local dev -- if left blank, the app just logs the reset link
+# to the console instead of emailing it, so signup/login/posts/comments all
+# still work. Only "forgot password" emails are affected.
+SENDGRID_API_KEY=
