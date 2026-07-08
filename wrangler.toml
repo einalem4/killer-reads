@@ -10,7 +10,7 @@ binding = "ASSETS"
 [[d1_databases]]
 binding = "DB"
 database_name = "killer-reads-db"
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+database_id = "3016975d-4150-4b6f-b123-95c8f20bae07"
 migrations_dir = "migrations"
 
 [[r2_buckets]]
