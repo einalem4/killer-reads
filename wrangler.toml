@@ -17,6 +17,16 @@ migrations_dir = "migrations"
 binding = "IMAGES_BUCKET"
 bucket_name = "killer-reads-images"
 
+[[ratelimits]]
+name = "SIGNUP_LIMITER"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
+
+[[ratelimits]]
+name = "UPLOAD_LIMITER"
+namespace_id = "1002"
+simple = { limit = 10, period = 60 }
+
 [vars]
 SERVICE_URL = "https://killer-reads.npc-labs.workers.dev"
 

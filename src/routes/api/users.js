@@ -39,6 +39,12 @@ usersApiRoutes.get('/:id', async (c) => {
 });
 
 usersApiRoutes.post('/', async (c) => {
+  const ip = c.req.header('CF-Connecting-IP') ?? 'unknown';
+  const { success } = await c.env.SIGNUP_LIMITER.limit({ key: ip });
+  if (!success) {
+    return c.json({ message: 'Too many signups from this network. Try again in a minute.' }, 429);
+  }
+
   const body = await c.req.json();
   const db = getDb(c.env.DB);
 
